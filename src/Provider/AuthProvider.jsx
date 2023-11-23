@@ -35,17 +35,17 @@ const AuthProvider = ({children}) => {
             const loggedUser = {email: userEmail}
             setUser(currentUser)
             setLoading(false)
-            if(currentUser){
-                axios.post('https://assignment-server-sand.vercel.app/jwt', loggedUser, {withCredentials: true})
-                .then()
-            }
-            else{
-                // console.log('logged out')
-                axios.post('https://assignment-server-sand.vercel.app/logout', loggedUser, {withCredentials: true})
-                .then(res => {
-                    console.log(res.data)
-                })
-            }
+            // if(currentUser){
+            //     axios.post('https://assignment-server-sand.vercel.app/jwt', loggedUser, {withCredentials: true})
+            //     .then()
+            // }
+            // else{
+            //     // console.log('logged out')
+            //     axios.post('https://assignment-server-sand.vercel.app/logout', loggedUser, {withCredentials: true})
+            //     .then(res => {
+            //         console.log(res.data)
+            //     })
+            // }
 
 
         })
