@@ -11,7 +11,7 @@ const Apartment = () => {
     return (
         <div>
 
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-10 py-28">
                 {
                     apartments[0].map(apartment => <ApartmentCard key={apartment.id} apartment={apartment}></ApartmentCard> )
                 }
