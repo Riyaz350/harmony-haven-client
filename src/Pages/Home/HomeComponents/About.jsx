@@ -5,7 +5,7 @@ import SubTitle from '../../../Hooks/SubTitle';
 const About = () => {
 
     const fadeinAnimate = {
-        initial:{ opacity: 0, y: -200 },
+        initial:{ opacity: 0, y: 200 },
         animate: { opacity: 3, y: 0 } 
     }
 

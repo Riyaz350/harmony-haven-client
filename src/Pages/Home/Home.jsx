@@ -1,5 +1,5 @@
 import About from "./HomeComponents/About";
-import Coupon from "./HomeComponents/Coupon";
+import Coupon from "./HomeComponents/Coupon/Coupon";
 import Slider from "./HomeComponents/Slider";
 
 const user = true
