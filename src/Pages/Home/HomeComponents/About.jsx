@@ -4,9 +4,13 @@ import SubTitle from '../../../Hooks/SubTitle';
 
 const About = () => {
 
-    const fadeinAnimate = {
-        initial:{ opacity: 0, y: 200 },
-        animate: { opacity: 3, y: 0 } 
+    const fadeFromLeft = {
+        initial:{ opacity: 0, x: -200 },
+        animate: { opacity: 3, x: 0 } 
+    }
+    const fadeFromRight = {
+        initial:{ opacity: 0, x: 200 },
+        animate: { opacity: 3, x: 0 } 
     }
 
 
@@ -19,7 +23,7 @@ const About = () => {
             <div className="hero  max-w-7xl mx-auto bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <motion.img
-                variants={fadeinAnimate}
+                variants={fadeFromLeft}
                 initial='initial'
                 whileInView='animate'
                 transition={{ duration: 1 }}
@@ -38,7 +42,7 @@ const About = () => {
             <div className="hero  max-w-7xl mx-auto bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
                 <motion.img
-                variants={fadeinAnimate}
+                variants={fadeFromRight}
                 initial='initial'
                 whileInView='animate'
                 transition={{ duration: 1 }}
@@ -57,7 +61,7 @@ const About = () => {
             <div className="hero  max-w-7xl mx-auto bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <motion.img
-                variants={fadeinAnimate}
+                variants={fadeFromLeft}
                 initial='initial'
                 whileInView='animate'
                 transition={{ duration: 1 }}
@@ -75,7 +79,7 @@ const About = () => {
             <div className="hero  max-w-7xl mx-auto bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
             <motion.img
-                variants={fadeinAnimate}
+                variants={fadeFromRight}
                 initial='initial'
                 whileInView='animate'
                 transition={{ duration: 1 }}

@@ -1,7 +1,12 @@
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaCopy } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
+const fadeinAnimate = {
+    initial:{opacity: 0, scale:0.8},
+    animate: {opacity:1, scale:1 } 
+}
 
 const CouponCard = ({coupon}) => {
     const {couponCode, description} = coupon
@@ -23,17 +28,24 @@ const CouponCard = ({coupon}) => {
 
 
     return (
-        <div  className="flex flex-col w-3/4 rounded-xl bg-[#00a9a5] text-white p-2" >
+        <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3,
+            ease: [0, 0.71, 0.2, 1.01],
+            scale: {
+              type: "spring",
+              damping: 5,
+              stiffness: 100,
+              restDelta: 0.001
+            }}}  className="flex flex-col w-3/4 rounded-xl bg-[#00a9a5] text-white p-2" >
 
 
-            <div className='text-3xl bg-[#0b5351] p-1 px-2 rounded-xl flex justify-between'>
+            <div className=' text-3xl bg-[#0b5351] p-1 px-2 rounded-xl flex justify-between'>
             <h1>{couponCode}</h1>
             <CopyToClipboard text={couponCode}>
                 <button onClick={handleCopy}><FaCopy /></button>
             </CopyToClipboard>
             </div>
             <h1 className='text-xl'>{description}</h1>
-        </div>
+        </motion.div>
     );
 };
 
