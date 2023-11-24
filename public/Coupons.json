@@ -1,0 +1,27 @@
+[
+    {
+      "type": "Maintenance Discount",
+      "description": "Enjoy 10% off your next maintenance service! Our way of keeping your home in top shape."
+    },
+    {
+      "type": "Referral Bonus",
+      "description": "Refer a friend and receive a $50 rent credit when they sign a lease! Share the joy of living in our community."
+    },
+    {
+      "type": "Early Renewal Incentive",
+      "description": "Renew your lease early and receive a $100 discount on your next month's rent. Secure your place in our community!"
+    },
+    {
+      "type": "Move-In Welcome Pack",
+      "description": "New to our community? Receive a welcome pack with exclusive discounts on local services and amenities!"
+    },
+    {
+      "type": "Seasonal Special",
+      "description": "Celebrate the season with a special discount! Use code SEASONHOME for a $25 rent credit."
+    },
+    {
+      "type": "Community Event Access",
+      "description": "Attend our community event and receive a coupon for a free month of parking or a waived pet fee!"
+    }
+  ]
+  

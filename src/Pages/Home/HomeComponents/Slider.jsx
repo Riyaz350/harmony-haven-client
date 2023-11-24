@@ -40,9 +40,9 @@ const Slider = () => {
       )
     return (
         <div>
-            <div ref={sliderRef} className="py-28 max-w-7xl mx-auto keen-slider">
-      <div className="keen-slider__slide number-slide1"><img src='https://i.ibb.co/RTjR6yM/modern-residential-building.jpg' alt="" /></div>
-      <div className="keen-slider__slide number-slide1"><img src='https://i.ibb.co/dBcjbxV/image.png' alt="" /></div>
+            <div ref={sliderRef} className=" py-28 max-w-7xl mx-auto keen-slider">
+      <div className="rounded-xl keen-slider__slide number-slide1"><img src='https://i.ibb.co/RTjR6yM/modern-residential-building.jpg' alt="" /></div>
+      <div className="rounded-xl keen-slider__slide number-slide1"><img src='https://i.ibb.co/dBcjbxV/image.png' alt="" /></div>
       
     </div>
         </div>
