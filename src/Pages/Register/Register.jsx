@@ -1,6 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { GoogleAuthProvider, updateProfile } from "firebase/auth";
+import auth from "../../../firebase.config";
+
 
 
 
@@ -15,7 +20,7 @@ const provider = new GoogleAuthProvider();
 const navigate = useNavigate()
 const location = useLocation()
 
-const {user,loading, createUser, signInUser,signInPop, logOut} =useContext(AuthContext)
+const {user,loading, createUser,signInPop, logOut} =useContext(AuthContext)
 
 const handleEmailRegister = e=>{
     e.preventDefault()
@@ -33,7 +38,7 @@ const handleEmailRegister = e=>{
         
     }else{
         createUser( email, password)
-    .then((result)=>{
+    .then(()=>{
         e.target.reset()
         Swal.fire({position: "top-end", icon: "success", title: "Please Sign In again", showConfirmButton: false, timer: 1500});
 
@@ -41,10 +46,10 @@ const handleEmailRegister = e=>{
         logOut()
         .then(result=>console.log(result))
         .catch(error => console.log(error.message))
+        
         updateProfile(auth.currentUser, { displayName: name, photoURL:photo }).catch(
             (err) => console.log(err))
             navigate('/login')
-        
         
     })
     .catch(e =>{
@@ -118,18 +123,18 @@ const handleGoogleSignIn = () =>{
 
 
                     <div className="form-control mt-4">
-                    <button className="btn  bg-white text-black font-bold border-black hover:shadow-white hover:bg-[#00a9a5] hover:text-white   ">Login</button>
+                    <button className="btn  bg-white text-black font-bold border-black hover:shadow-white hover:bg-[#00a9a5] hover:text-white   ">Register</button>
                     </div>
 
                         
 
                         <div className="space-y-5 mt-5">
-                        <p className="text-center ">Do not have an account?? <Link to="/register" className="text-blue-500 hover:underline">Register Here</Link></p>
+                        <p className="text-center ">Already have an account?? <Link to="/logIn" className="text-blue-500 hover:underline">Log In</Link></p>
                         <div className="flex items-center gap-4"><hr className="w-full h-2 " /><p>OR</p><hr className="w-full" /></div>
                         </div>
                 </form>
                 <div className="flex justify-center items-center">
-                        <button onClick={handleGoogleSignIn} className="btn  sm:btn-sm md:btn-md lg:btn-lg my-4 hover:bg-[#00a9a5] hover:text-white"><FcGoogle/> Sign In With Google</button>
+                        <button onClick={handleGoogleSignIn} className="btn  sm:btn-sm md:btn-md lg:btn-lg my-4 hover:bg-[#00a9a5] hover:text-white"><FcGoogle /> Sign In With Google</button>
                         </div>
                 </div>
             </div>

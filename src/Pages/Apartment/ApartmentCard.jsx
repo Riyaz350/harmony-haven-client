@@ -20,7 +20,7 @@ const ApartmentCard = ({apartment}) => {
     }
 
     const fadeinAnimate = {
-        initial:{opacity: 0, scale:0},
+        initial:{opacity: 0, scale:0.7},
         animate: {opacity:1, scale:1 } 
     }
     return (
@@ -28,7 +28,7 @@ const ApartmentCard = ({apartment}) => {
             <div>
             <div className=" max-w-7xl mx-auto bg-[#092327] rounded-xl text-white">
             <div className="hero-content lg:flex flex-col items-start lg:items-center lg:justify-between  lg:flex-row-reverse ">
-               <div> <motion.img variants={fadeFromLeft} initial='initial' whileInView='animate' transition={{ duration: 1 }}  src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" /></div>
+               <div> <motion.img variants={fadeFromLeft} initial='initial' whileInView='animate' transition={{ duration: 1 }} viewport={{once:true}} src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" /></div>
                <div className=''>
                 <div>
 

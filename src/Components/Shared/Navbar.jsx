@@ -17,7 +17,8 @@ const Navbar = () => {
 
     const navLinks = < div className=" lg:flex items-center gap-6 space-y-1">
       <NavLink className={({ isActive, isPending,  }) =>isPending ? "pending" : isActive ? active : inActive} to="/">Home</NavLink>
-      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/apartments">Apartment</NavLink></div>
+      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/apartments">Apartment</NavLink>
+      </div>
 
       const handleLogOut = () =>{
         logOut()
@@ -54,10 +55,10 @@ const Navbar = () => {
                 <Link to='/logIn' className="btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold">Log In</Link>:
                 <>
                 <details className="dropdown dropdown-bottom dropdown-end">
-                    <summary className="m-2 btn p-0 rounded-full bg-transparent border-0 hover:border-0 hover:bg-transparent" >{user.photoURL? <img className="w-11 rounded-full" src={user.photoURL}></img> :<FaRegUser className="m-1 btn bg-[#00a9a5] rounded-full hover:text-[#00a9a5] hover:bg-white" />} </summary>
+                    <summary className="m-2 btn p-0 rounded-full bg-transparent border-0 hover:border-0 hover:bg-transparent" >{user.photoURL? <img className="w-14 rounded-full" src={user.photoURL}></img> :<div className="m-1 btn bg-[#00a9a5] rounded-full hover:text-[#00a9a5] hover:bg-white"><FaRegUser  /></div>} </summary>
                     <ul className="text-base text-white font-semibold dropdown-content z-[1] menu p-2 shadow bg-[#00a9a5] rounded-box w-52">
                         <li className="btnLandLord"><Link>{user.displayName}</Link></li>
-                        <li className="btnLandLord"><Link>Dashboard</Link></li>
+                        <li className="btnLandLord"><Link to='/dashboard'>Dashboard</Link></li>
                         <li className="btnLandLord"><button onClick={handleLogOut}>Log Out</button></li>
                     </ul>
                 </details>

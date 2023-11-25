@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import About from "./HomeComponents/About";
 import Coupon from "./HomeComponents/Coupon/Coupon";
 import Location from "./HomeComponents/Location/Location";
 import Slider from "./HomeComponents/Slider";
+import { AuthContext } from "../../Provider/AuthProvider";
 
-const user = true
 
 const Home = () => {
+    const {user} =useContext(AuthContext)
     return (
         <div className="overflow-hidden">
             <Slider></Slider>

@@ -13,7 +13,8 @@
     "security": false,
     "airCondition": true,
     "heater": false,
-    "waterHeater": true
+    "waterHeater": true,
+    "status":"notBooked"
   },
   {
     "id": 2,
@@ -29,7 +30,9 @@
     "security": true,
     "airCondition": false,
     "heater": true,
-    "waterHeater": false
+    "waterHeater": false,
+    "status":"notBooked"
+
   },
   {
     "id": 3,
@@ -45,7 +48,9 @@
     "security": true,
     "airCondition": true,
     "heater": false,
-    "waterHeater": true
+    "waterHeater": true,
+    "status":"notBooked"
+
   },
   {
     "id": 4,
@@ -61,7 +66,9 @@
     "security": true,
     "airCondition": true,
     "heater": true,
-    "waterHeater": false
+    "waterHeater": false,
+    "status":"notBooked"
+
   },
   {
     "id": 5,
@@ -77,7 +84,9 @@
     "security": false,
     "airCondition": false,
     "heater": true,
-    "waterHeater": true
+    "waterHeater": true,
+    "status":"notBooked"
+
   },
   {
     "id": 6,
@@ -93,7 +102,9 @@
     "security": true,
     "airCondition": true,
     "heater": true,
-    "waterHeater": false
+    "waterHeater": false,
+    "status":"notBooked"
+
   },
   {
     "id": 7,
@@ -109,7 +120,9 @@
     "security": true,
     "airCondition": false,
     "heater": false,
-    "waterHeater": true
+    "waterHeater": true,
+    "status":"notBooked"
+
   },
   {
     "id": 8,
@@ -125,7 +138,9 @@
     "security": true,
     "airCondition": true,
     "heater": false,
-    "waterHeater": true
+    "waterHeater": true,
+    "status":"notBooked"
+
   },
   {
     "id": 9,
@@ -141,7 +156,9 @@
     "security": false,
     "airCondition": true,
     "heater": false,
-    "waterHeater": true
+    "waterHeater": true,
+    "status":"notBooked"
+
   },
   {
     "id": 10,
@@ -157,6 +174,8 @@
     "security": true,
     "airCondition": false,
     "heater": true,
-    "waterHeater": false
+    "waterHeater": false,
+    "status":"notBooked"
+
   }
 ]

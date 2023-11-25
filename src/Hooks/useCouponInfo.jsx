@@ -6,7 +6,7 @@ const useCouponInfo = () => {
     const {data: coupons=[], isPending: couponLoading} =useQuery({
         queryKey: [ 'coupons'],
         queryFn: async()=>{
-            const res = await axiosPublic.get(`Coupons.json`)
+            const res = await axiosPublic.get(`/coupons`)
             return res.data
         }
     })
