@@ -4,7 +4,6 @@ import ApartmentCard from './ApartmentCard'
 const Apartment = () => {
 
     const apartments = useApartmentInfo()
-    console.log(apartments[0][1])
 
     
     

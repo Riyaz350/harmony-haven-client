@@ -1,26 +1,21 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { GoogleAuthProvider, updateProfile } from "firebase/auth";
+import { Link,  useNavigate } from "react-router-dom";
+import {  updateProfile } from "firebase/auth";
 import auth from "../../../firebase.config";
-
-
-
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const Register = () => {
-
+    const axiosPublic = useAxiosPublic()
     const [name, setName] =useState("")
-const [photo, setPhoto] =useState('')
-const [email, setEmail] =useState("")
-const [password, setPassword] = useState("")
-const provider = new GoogleAuthProvider();
-const navigate = useNavigate()
-const location = useLocation()
+    const [photo, setPhoto] =useState('')
+    const [email, setEmail] =useState("")
+    const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
-const {user,loading, createUser,signInPop, logOut} =useContext(AuthContext)
+const {createUser, logOut} =useContext(AuthContext)
 
 const handleEmailRegister = e=>{
     e.preventDefault()
@@ -42,6 +37,9 @@ const handleEmailRegister = e=>{
         e.target.reset()
         Swal.fire({position: "top-end", icon: "success", title: "Please Sign In again", showConfirmButton: false, timer: 1500});
 
+        const userInfo = {email:email, name:name, photo:photo,  role:'user',}
+        axiosPublic.post('/users', userInfo )
+        .then()
         
         logOut()
         .then(result=>console.log(result))
@@ -60,20 +58,6 @@ const handleEmailRegister = e=>{
      
     }
 }
-
-// Google register handler
-
-const handleGoogleSignIn = () =>{
-    signInPop(provider)
-    .then(()=>{
-        Swal.fire({position: "top-end", icon: "success", title: "Google sign up successful", showConfirmButton: false, timer: 1500});
-
-        navigate(location?.state? location.state :'/')
-    })
-    .catch()
-}
-
-
     return (
         <div >
 
@@ -130,12 +114,9 @@ const handleGoogleSignIn = () =>{
 
                         <div className="space-y-5 mt-5">
                         <p className="text-center ">Already have an account?? <Link to="/logIn" className="text-blue-500 hover:underline">Log In</Link></p>
-                        <div className="flex items-center gap-4"><hr className="w-full h-2 " /><p>OR</p><hr className="w-full" /></div>
                         </div>
                 </form>
-                <div className="flex justify-center items-center">
-                        <button onClick={handleGoogleSignIn} className="btn  sm:btn-sm md:btn-md lg:btn-lg my-4 hover:bg-[#00a9a5] hover:text-white"><FcGoogle /> Sign In With Google</button>
-                        </div>
+               
                 </div>
             </div>
             </div>

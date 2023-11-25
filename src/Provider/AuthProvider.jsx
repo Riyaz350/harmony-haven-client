@@ -1,13 +1,13 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth"
 import auth from "../../firebase.config"
 import { createContext, useEffect, useState } from "react"
-import axios from "axios"
+import useAxiosPublic from "../Hooks/useAxiosPublic"
 
 export const AuthContext = createContext(null)
 const AuthProvider = ({children}) => {
+    const axiosPublic = useAxiosPublic()
     const [loading, setLoading] =useState(true)
     const [user, setUser] =useState(null)
-
 
     const createUser = ( email, password) =>{
         setLoading(true)
@@ -29,32 +29,27 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
-
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser =>{
             const userEmail = currentUser?.email || user?.email 
             const loggedUser = {email: userEmail}
+            
             setUser(currentUser)
             setLoading(false)
-            // if(currentUser){
-            //     axios.post('https://assignment-server-sand.vercel.app/jwt', loggedUser, {withCredentials: true})
-            //     .then()
-            // }
-            // else{
-            //     // console.log('logged out')
-            //     axios.post('https://assignment-server-sand.vercel.app/logout', loggedUser, {withCredentials: true})
-            //     .then(res => {
-            //         console.log(res.data)
-            //     })
-            // }
-
-
+            if(currentUser){
+                axiosPublic.post('/jwt', loggedUser, {withCredentials:true})
+                .then(res => console.log(res.data.token))
+            }
+            else{
+                // console.log('logged out')
+                axiosPublic.post('/logout', loggedUser, {withCredentials:true})
+                .then( )
+            }
         })
         return()=>{
           unSubscribe()  
         }
-    },[user?.email])
-
+    },[user?.email, axiosPublic])
 
     const authInfo = { user,loading, createUser, signInUser,signInPop, logOut }
 

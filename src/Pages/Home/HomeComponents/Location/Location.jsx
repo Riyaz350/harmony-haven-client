@@ -7,8 +7,8 @@ import SubTitle from "../../../../Hooks/SubTitle";
 const Location = () => {
 
     const allTabs = [
-        { icon: "https://i.ibb.co/VB39pdm/Animation-1700830758986.gif",name:'Map', label: <LocationMap/> },
-        { icon: "https://i.ibb.co/b3y7k27/Animation-1700830906341.gif",name:'Directions', label: <LocationDirection/> },
+        {id:'2f7c7', icon: "https://i.ibb.co/VB39pdm/Animation-1700830758986.gif",name:'Map', label: <LocationMap/> },
+        {id:'a62b6', icon: "https://i.ibb.co/b3y7k27/Animation-1700830906341.gif",name:'Directions', label: <LocationDirection/> },
     ]
     const [selectedTab, setSelectedTab] = useState(allTabs[0]);
 
@@ -22,11 +22,11 @@ const Location = () => {
           <ul className="lg:grid grid-cols-2 text-white">
             {allTabs.map((item) => (
               <li
-                key={item.label}
+                key={item.id}
                 className={item === selectedTab ? "selected" : ""}
                 onClick={() => setSelectedTab(item)}
               >
-                <div className=" bg-[#00a9a5] rounded-xl w-1/2 mx-auto mt-10 p-2 cursor-pointer flex gap-2 items-center justify-center gap-0">
+                <div className=" bg-[#00a9a5] rounded-xl w-1/2 mx-auto mt-10 p-2 cursor-pointer flex gap-2 items-center justify-center">
                 <img className="w-1/4 " src={item.icon} alt="" />
                 <h1 className="text-xl">{item.name}</h1>
                 </div>

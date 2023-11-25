@@ -4,24 +4,36 @@ import { FaFireBurner } from "react-icons/fa6";
 import { TiLightbulb } from "react-icons/ti";
 import { GiComputerFan } from "react-icons/gi";
 import { MdBalcony, MdFireplace } from "react-icons/md";
-
-
-
-
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 
 const ApartmentCard = ({apartment}) => {
 
-    const{id, apartmentImage, floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
+    const {user} = useContext(AuthContext)
+    const{_id, apartmentImage, floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
+    const axiosSecure =useAxiosSecure()
 
+    // ANIMATIONS
     const fadeFromLeft = {
         initial:{ opacity: 0, x: -200 },
         animate: { opacity: 3, x: 0 } 
     }
 
-    const fadeinAnimate = {
+    const fadeInAnimate = {
         initial:{opacity: 0, scale:0.7},
         animate: {opacity:1, scale:1 } 
+    }
+
+    const handleAgreement = () =>{
+        const userInfo ={ name: user?.displayName, email:user?.email, floorNo, blockName, apartmentNo, rent, status:'pending' }
+        axiosSecure.post('/agreements', userInfo)
+        .then(res => console.log(res))
+
+        axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
+        .then(res=>console.log(res))
+        
     }
     return (
         <div>
@@ -40,16 +52,16 @@ const ApartmentCard = ({apartment}) => {
                 <div className='space-y-2 mb-5'>
                     <h1 className='text-2xl'>Other Facilities</h1>
                     <div className='flex gap-5'>
-                    {balcony? <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdBalcony /></motion.div>: <></>}
-                    {water? <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><IoWaterOutline /></motion.div>: <></>}
-                    {gas? <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' > <FaFireBurner /> </motion.div>: <></>}
-                    {electricity? <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><TiLightbulb /></motion.div>: <></>}
-                    {airCondition? <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><GiComputerFan /></motion.div>: <></>}
-                    {heater? <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
+                    {balcony? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdBalcony /></motion.div>: <></>}
+                    {water? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><IoWaterOutline /></motion.div>: <></>}
+                    {gas? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' > <FaFireBurner /> </motion.div>: <></>}
+                    {electricity? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><TiLightbulb /></motion.div>: <></>}
+                    {airCondition? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><GiComputerFan /></motion.div>: <></>}
+                    {heater? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
                     </div>
                 </div>
                 <div>
-                    <button className='btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'>Agreement</button>
+                    <button onClick={handleAgreement} className='btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'>Agreement</button>
                 </div>
                 </div>
                 
