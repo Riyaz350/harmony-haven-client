@@ -12,7 +12,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 const ApartmentCard = ({apartment}) => {
 
     const {user} = useContext(AuthContext)
-    const{_id, apartmentImage, floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
+    const{_id, apartmentImage,status, floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
     const axiosSecure =useAxiosSecure()
 
     // ANIMATIONS
@@ -61,7 +61,7 @@ const ApartmentCard = ({apartment}) => {
                     </div>
                 </div>
                 <div>
-                    <button onClick={handleAgreement} className='btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'>Agreement</button>
+                    <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'>{status !== 'notBooked' ? <p >Booked/Agreement Pending</p> :<p>Book Now</p> }</button>
                 </div>
                 </div>
                 
