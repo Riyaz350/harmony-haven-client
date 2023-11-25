@@ -7,7 +7,7 @@ const user = true
 
 const Home = () => {
     return (
-        <div>
+        <div className="overflow-hidden">
             <Slider></Slider>
             <About></About>
             {user? <Coupon></Coupon> : <></>}
