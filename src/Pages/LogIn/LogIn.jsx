@@ -68,7 +68,6 @@ const LogIn = () => {
     return (
         
         <div >
-        <Navbar></Navbar>
 
             <div data-aos='fade-up' className="py-20 lg:p-20">
                 <div className={"text-black light-home max-w-xl rounded-3xl mx-auto my-20 py-10 px-5 lg:p-20 border-2 border-black"}>
@@ -96,7 +95,7 @@ const LogIn = () => {
                         </label>
                         </div>
                         <div className="form-control mt-4">
-                        <button className="btn  bg-white text-black font-bold border-black hover:shadow-white hover:bg-red-700 hover:text-white   ">Login</button>
+                        <button className="btn  bg-white text-black font-bold border-black hover:shadow-white hover:bg-[#00a9a5] hover:text-white   ">Login</button>
                         </div>
                             
 
@@ -106,12 +105,11 @@ const LogIn = () => {
                             </div>
                     </form>
                     <div className="flex justify-center items-center">
-                            <button onClick={handleGoogleSignIn} className="btn  sm:btn-sm md:btn-md lg:btn-lg my-4 hover:bg-red-700 hover:text-white"><FcGoogle/> Sign In With Google</button>
+                            <button onClick={handleGoogleSignIn} className="btn  sm:btn-sm md:btn-md lg:btn-lg my-4 hover:bg-[#00a9a5] hover:text-white"><FcGoogle/> Sign In With Google</button>
                             </div>
                     </div>
                 </div>
                 </div>
-            <Footer></Footer>
             </div>
 
     );

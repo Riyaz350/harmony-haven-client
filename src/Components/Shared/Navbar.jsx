@@ -1,30 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import '../../App.css'
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 
 const Navbar = () => {
 
+    const {user, logOut} =useContext(AuthContext)
+    console.log(user)
+
     const active = 'btn font-bold bg-[#00a9a5] border-2 lg:w-auto w-full border-[#ffffff] text-[#ffffff] rounded-lg hover:bg-[#0b5351]  hover:border-[#ffffff]'
     const inActive = 'btn shadow-none bg-transparent border-2 border-transparent text-white font-bold lg:w-auto w-full hover:border-[#00a9a5] border-transparent rounded-lg hover:bg-[#00a9a5] hover:border-[#ffffff] hover:text-[#ffffff]'
 
-    const user = false;
-    const photo = true;
 
     const navLinks = < div className=" lg:flex items-center gap-6 space-y-1">
       <NavLink className={({ isActive, isPending,  }) =>isPending ? "pending" : isActive ? active : inActive} to="/">Home</NavLink>
-      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/apartments">Apartment</NavLink>
-      {user? <>
-      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/createAssignments">User</NavLink>
-      </>: 
-      <div>
-          <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/createAssignments">Log In</NavLink>
+      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/apartments">Apartment</NavLink></div>
 
-      </div>
-
-        }
-       </div>
+      const handleLogOut = () =>{
+        logOut()
+      }
       
 
 
@@ -57,11 +54,11 @@ const Navbar = () => {
                 <Link to='/logIn' className="btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold">Log In</Link>:
                 <>
                 <details className="dropdown dropdown-bottom dropdown-end">
-                    <summary className="m-1 btn bg-[#00a9a5] rounded-full hover:text-[#00a9a5] hover:bg-white"><FaRegUser /></summary>
+                    <summary className="m-2 btn p-0 rounded-full bg-transparent border-0 hover:border-0 hover:bg-transparent" >{user.photoURL? <img className="w-11 rounded-full" src={user.photoURL}></img> :<FaRegUser className="m-1 btn bg-[#00a9a5] rounded-full hover:text-[#00a9a5] hover:bg-white" />} </summary>
                     <ul className="text-base text-white font-semibold dropdown-content z-[1] menu p-2 shadow bg-[#00a9a5] rounded-box w-52">
-                        <li className="btnLandLord"><Link>User Name</Link></li>
+                        <li className="btnLandLord"><Link>{user.displayName}</Link></li>
                         <li className="btnLandLord"><Link>Dashboard</Link></li>
-                        <li className="btnLandLord"><Link>Log Out</Link></li>
+                        <li className="btnLandLord"><button onClick={handleLogOut}>Log Out</button></li>
                     </ul>
                 </details>
 
