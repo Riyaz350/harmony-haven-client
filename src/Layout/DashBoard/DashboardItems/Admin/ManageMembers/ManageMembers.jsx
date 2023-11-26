@@ -3,7 +3,9 @@ import ManageUserRow from "./ManageUserRow";
 
 const ManageMembers = () => {
     const [users, userLoading, refetch] = useUserInfo()
+    const members = users.filter(user => user?.role == 'member')
     console.log(users)
+
     return (
         <div>
             <div className="lg:min-h-screen">
@@ -23,7 +25,7 @@ const ManageMembers = () => {
                 
                 <tbody >
                 {
-                users.map(user =><ManageUserRow key={user._id} user={user} ></ManageUserRow>)
+                members.map(user =><ManageUserRow key={user._id} user={user} refetch ></ManageUserRow>)
                 }
                 </tbody>
 
