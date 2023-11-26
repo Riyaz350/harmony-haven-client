@@ -8,10 +8,13 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { dateTime } from "../../Utility/utilities";
+import useApartmentInfo from '../../Hooks/useApartmentInfo';
+import Swal from 'sweetalert2';
 
 
 
-const ApartmentCard = ({apartment, refetch}) => {
+const ApartmentCard = ({apartment}) => {
+    const [,,refetch] =useApartmentInfo()
     const [occupied, setOccupied] =useState('true')
     const toDate = new Date()
     const {user} = useContext(AuthContext)
@@ -34,9 +37,13 @@ const ApartmentCard = ({apartment, refetch}) => {
         const userInfo ={apartmentId:_id, name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
         axiosSecure.post('/agreements', userInfo)
         .then(res => console.log(res))
-        refetch
         axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
-        .then(res=>console.log(res))
+        .then(res=>{
+            if(res.data.modifiedCount>0){
+                Swal.fire({position: "top-end", icon: "success", title: "Waiting for approval", showConfirmButton: false, timer: 1500});
+                refetch()
+            }
+        })
         
     }
     return (
@@ -64,10 +71,12 @@ const ApartmentCard = ({apartment, refetch}) => {
                     {heater? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
                     </div>
                 </div>
+                {user? 
                 <div>
-                   {status !== 'notBooked'? <p    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</p> :
-                    <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>}
-                </div>
+                {status !== 'notBooked'? <p    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Pending</p> :
+                 <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>}
+             </div>:
+             <></>}
                 </div>
                 
             </div>

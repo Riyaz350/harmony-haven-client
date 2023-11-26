@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import '../../../../../App.css'
 import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 import useAgreements from '../../../../../Hooks/useAgreements';
+import Swal from 'sweetalert2';
 
 const AgreementsRow = ({agreement}) => {
     const [,refetch] =useAgreements()
@@ -11,7 +12,7 @@ const AgreementsRow = ({agreement}) => {
     const handleApprove = () =>{
         axiosSecure.patch(`/apartments/${apartmentId}`, {status: 'booked'})
         .then(res=>{
-            console.log(res)
+            Swal.fire({position: "top-end", icon: "success", title: "Request Approved", showConfirmButton: false, timer: 1500});
             refetch()
         })
 
@@ -25,6 +26,7 @@ const AgreementsRow = ({agreement}) => {
         axiosSecure.delete(`/agreements/${_id}`)
         .then(res=>{
             if(res.data.deletedCount>0){
+                Swal.fire({position: "top-end", icon: "success", title: "Request Rejected", showConfirmButton: false, timer: 1500});
                 refetch()
             }
         })
