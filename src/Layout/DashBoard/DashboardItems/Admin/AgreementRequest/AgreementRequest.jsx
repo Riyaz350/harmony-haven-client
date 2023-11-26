@@ -2,7 +2,7 @@ import useAgreements from "../../../../../Hooks/useAgreements";
 import AgreementsRow from "./AgreementsRow";
 
 const AgreementRequest = () => {
-    const [agreements, refetch] =useAgreements()
+    const [agreements, refetch, agreementLoading] =useAgreements()
     return (
         <div>
             <div className="lg:min-h-screen">
@@ -28,7 +28,7 @@ const AgreementRequest = () => {
                 
                 <tbody >
                 {
-                agreements.map(agreement =><AgreementsRow key={agreement._id} agreement={agreement} refetch></AgreementsRow>)
+                agreements.map(agreement =><AgreementsRow key={agreement._id} agreement={agreement} ></AgreementsRow>)
                 }
                 </tbody>
 
