@@ -61,7 +61,8 @@ const ApartmentCard = ({apartment}) => {
                     </div>
                 </div>
                 <div>
-                    <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'>{status !== 'notBooked' ? <p >Booked/Agreement Pending</p> :<p>Book Now</p> }</button>
+                   {status !== 'notBooked'? <p    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</p> :
+                    <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>}
                 </div>
                 </div>
                 

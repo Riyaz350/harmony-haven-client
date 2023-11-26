@@ -39,7 +39,7 @@ import Register from "../Pages/Register/Register";
       ]
     },
     {
-      path:'/dashboard',
+      path:'dashboard',
       element:<Dashboard></Dashboard>,
       children:[
 
@@ -48,7 +48,7 @@ import Register from "../Pages/Register/Register";
 
 
         {
-          path:'userDashboard',
+          path:'userHome',
           element:<UserDashboard></UserDashboard>
         },
         {
