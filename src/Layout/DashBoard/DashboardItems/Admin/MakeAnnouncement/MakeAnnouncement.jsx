@@ -1,5 +1,8 @@
+import Swal from 'sweetalert2';
 import '../../../../../App.css'
+import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 const MakeAnnouncement = () => {
+    const axiosSecure = useAxiosSecure()
 
     const handleAnnouncement = e =>{
         e.preventDefault()
@@ -7,7 +10,13 @@ const MakeAnnouncement = () => {
         const title = form.title.value
         const message = form.message.value
         const announcement = {title, message}
-        
+        axiosSecure.post('/announcements', announcement)
+        .then(res=>{
+            if(res.status == 200){
+                Swal.fire({position: "top-end", icon: "success", title: "Announcement Published", showConfirmButton: false, timer: 1500});
+                e.target.reset()
+            }
+        })
     }
 
     return (

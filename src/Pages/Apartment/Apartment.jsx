@@ -13,9 +13,7 @@ const Apartment = () => {
     const [length, setLength] = useState(0)
     const [current, setCurrent] =useState(0)
     const [apartments, setApartments] = useState([])
-    console.log(apartments)
-    // const [ apartmentLoading] = useApartmentInfo(current, apartmentsPerPage)
-    console.log(current, apartmentsPerPage)
+    // const [apartments, apartmentLoading, refetch] = useApartmentInfo(current, apartmentsPerPage)
 
     const pageCount = Math.ceil(length/apartmentsPerPage)
     const pages = [...Array(pageCount).keys()]
@@ -26,7 +24,7 @@ const Apartment = () => {
    useEffect(()=>{
     axiosPublic.get(`/apartments?page=${current}&size=${apartmentsPerPage}`)
     .then(res =>{
-        setApartments(res.data)
+            setApartments(res.data)
     }
     )
 
@@ -34,12 +32,17 @@ const Apartment = () => {
     .then(res => setLength(res.data.count))
    },[axiosPublic,current, length])
     
-    const handlePrev =() =>{
-
+   const handlePrev = () =>{
+    if(current>0){
+        setCurrent(current -1)
     }
-    const handleNext =() =>{
-
+}
+const handleNext = () =>{
+    if(current < pages.length-1){
+        
+        setCurrent(current +1)
     }
+}
     
 
     
