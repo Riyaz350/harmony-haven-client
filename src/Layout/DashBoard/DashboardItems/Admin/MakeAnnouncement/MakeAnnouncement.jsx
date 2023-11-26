@@ -1,15 +1,18 @@
 import Swal from 'sweetalert2';
 import '../../../../../App.css'
 import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
+import { dateTime } from '../../../../../Utility/utilities';
 const MakeAnnouncement = () => {
     const axiosSecure = useAxiosSecure()
 
     const handleAnnouncement = e =>{
         e.preventDefault()
+        const toDate = new Date()
+        const submissionTime = dateTime(toDate)
         const form = e.target
         const title = form.title.value
         const message = form.message.value
-        const announcement = {title, message}
+        const announcement = {title, message, submissionTime}
         axiosSecure.post('/announcements', announcement)
         .then(res=>{
             if(res.status == 200){

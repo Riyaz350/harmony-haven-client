@@ -26,12 +26,12 @@ const Dashboard = () => {
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/makeAnnouncement">Make Announcement</NavLink>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/agreementRequest">Agreement Request</NavLink>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/manageCoupons">Manage Coupons</NavLink>
+      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/announcements">Announcements</NavLink>
       </>
       }
       {userRole !== 'admin' && 
       <>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/userHome">User Home</NavLink>
-      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/announcements">Announcements</NavLink>
       </>
       }
       {userRole == 'member' && 
