@@ -4,14 +4,14 @@ import useAxiosSecure from "./useAxiosSecure";
 const useAgreements = () => {
     const axiosSecure = useAxiosSecure()
 
-    const {data: agreement ={}, isPending:agreementLoading} =useQuery({
+    const {data: agreements=[], isPending:agreementLoading, refetch} =useQuery({
         queryKey:['agreement'],
         queryFn: async()=>{
                 const res = await axiosSecure.get('/agreements')
                 return res.data
         }
     })
-    return [agreement, agreementLoading]
+    return [agreements, agreementLoading, refetch]
 };
 
 export default useAgreements;

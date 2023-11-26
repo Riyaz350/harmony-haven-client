@@ -3,16 +3,15 @@ import ApartmentCard from './ApartmentCard'
 
 const Apartment = () => {
 
-    const apartments = useApartmentInfo()
+    const [apartments, refetch] = useApartmentInfo()
 
-    
     
     return (
         <div>
 
             <div className="flex flex-col gap-10 py-28">
                 {
-                    apartments[0].map(apartment => <ApartmentCard key={apartment.id} apartment={apartment}></ApartmentCard> )
+                    apartments.map(apartment => <ApartmentCard key={apartment.id} apartment={apartment} refetch></ApartmentCard> )
                 }
             </div>
             

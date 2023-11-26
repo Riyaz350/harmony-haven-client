@@ -4,15 +4,18 @@ import { FaFireBurner } from "react-icons/fa6";
 import { TiLightbulb } from "react-icons/ti";
 import { GiComputerFan } from "react-icons/gi";
 import { MdBalcony, MdFireplace } from "react-icons/md";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { dateTime } from "../../Utility/utilities";
 
 
-const ApartmentCard = ({apartment}) => {
 
+const ApartmentCard = ({apartment, refetch}) => {
+    const [occupied, setOccupied] =useState('true')
+    const toDate = new Date()
     const {user} = useContext(AuthContext)
-    const{_id, apartmentImage,status, floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
+    const{_id, apartmentImage,status, floorNo, room, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
     const axiosSecure =useAxiosSecure()
 
     // ANIMATIONS
@@ -27,10 +30,11 @@ const ApartmentCard = ({apartment}) => {
     }
 
     const handleAgreement = () =>{
-        const userInfo ={ name: user?.displayName, email:user?.email, floorNo, blockName, apartmentNo, rent, status:'pending' }
+        const submissionTime = dateTime(toDate)
+        const userInfo ={apartmentId:_id, name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
         axiosSecure.post('/agreements', userInfo)
         .then(res => console.log(res))
-
+        refetch
         axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
         .then(res=>console.log(res))
         
