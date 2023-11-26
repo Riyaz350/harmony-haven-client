@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
 
 const ApartmentCard = ({apartment}) => {
     const [,,refetch] =useApartmentInfo()
-    const [occupied, setOccupied] =useState('true')
     const toDate = new Date()
     const {user} = useContext(AuthContext)
     const{_id, apartmentImage,status, floorNo, room, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
@@ -35,7 +34,7 @@ const ApartmentCard = ({apartment}) => {
     const handleAgreement = () =>{
         const submissionTime = dateTime(toDate)
         const userInfo ={apartmentId:_id, name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
-        axiosSecure.post('/agreements', userInfo)
+        axiosSecure.post(`/agreements`, userInfo)
         .then(res => console.log(res))
         axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
         .then(res=>{

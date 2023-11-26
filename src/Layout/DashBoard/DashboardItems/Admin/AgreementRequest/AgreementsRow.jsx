@@ -38,6 +38,7 @@ const AgreementsRow = ({agreement}) => {
     }
 
     return (
+
         <tr className="border-2 border-black  rounded-lg ">
         <th>{name}</th>
         <th>{email}</th>

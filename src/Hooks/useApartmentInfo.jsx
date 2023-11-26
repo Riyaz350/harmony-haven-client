@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import useAxiosPublic from './useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
-const useApartmentInfo = () => {
+const useApartmentInfo = (e) => {
     const axiosPublic = useAxiosPublic()
+
     const {data: apartments=[], isPending: apartmentLoading, refetch} =useQuery({
         queryKey: [ 'apartments'],
         queryFn: async()=>{

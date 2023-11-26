@@ -17,7 +17,7 @@ const Dashboard = () => {
     const active = 'btn font-bold bg-[#00a9a5] border-2  w-full border-[#ffffff] text-[#ffffff] rounded-lg hover:bg-[#0b5351]  hover:border-[#ffffff]'
     const inActive = 'btn shadow-none bg-[#00a9a5] border-2 border-white text-white font-bold  w-full hover:border-[#00a9a5] border-transparent rounded-lg hover:bg-[#00a9a5] hover:border-[#ffffff] hover:text-[#ffffff]'
 
-    const navLinks = < div className=" lg:flex flex-col items-start gap-1 space-y-1">
+    const navLinks = < div className="z100 lg:flex flex-col items-start gap-1 space-y-1">
       <NavLink className={({ isActive, isPending,  }) =>isPending ? "pending" : isActive ? active : inActive} to="/">Home</NavLink>
       {userRole == 'admin' && 
       <>
