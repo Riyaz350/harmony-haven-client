@@ -3,18 +3,30 @@ import '../../../../../App.css'
 import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 import useAgreements from '../../../../../Hooks/useAgreements';
 import Swal from 'sweetalert2';
+import useUserInfo from '../../../../../Hooks/useUserInfo';
 
 const AgreementsRow = ({agreement}) => {
-    const [,refetch, loading] =useAgreements()
+    const [,,refetch] =useUserInfo()
+    const [,refetchAgreements, loading] =useAgreements()
     const axiosSecure = useAxiosSecure()
-    const{_id, apartmentId, name, email, submissionTime, apartmentImage,status,room,  floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = agreement
+    const{_id,userId, apartmentId, name, email, submissionTime, apartmentImage,status,room,  floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = agreement
 
     const handleApprove = () =>{
         axiosSecure.patch(`/apartments/${apartmentId}`, {status: 'booked'})
         .then(res=>{
             Swal.fire({position: "top-end", icon: "success", title: "Request Approved", showConfirmButton: false, timer: 1500});
+            refetchAgreements()
+        })
+
+        axiosSecure.patch(`/users/${email}` , [ {role: 'member'},{owned: apartmentId} ])
+        .then(()=>{
             refetch()
         })
+        
+        
+
+        
+
 
         axiosSecure.patch(`/agreements/${_id}`, {status: 'booked'})
         .then(()=>{
@@ -27,7 +39,7 @@ const AgreementsRow = ({agreement}) => {
         .then(res=>{
             if(res.data.deletedCount>0){
                 Swal.fire({position: "top-end", icon: "success", title: "Request Rejected", showConfirmButton: false, timer: 1500});
-                refetch()
+                refetchAgreements()
             }
         })
         axiosSecure.patch(`/apartments/${apartmentId}`, {status: 'notBooked'})

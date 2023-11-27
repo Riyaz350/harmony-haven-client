@@ -10,6 +10,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { dateTime } from "../../Utility/utilities";
 import useApartmentInfo from '../../Hooks/useApartmentInfo';
 import Swal from 'sweetalert2';
+import useUserRole from '../../Hooks/useUserRole'
 
 
 
@@ -19,6 +20,8 @@ const ApartmentCard = ({apartment}) => {
     const {user} = useContext(AuthContext)
     const{_id, apartmentImage,status, floorNo, room, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
     const axiosSecure =useAxiosSecure()
+    const [userRole] = useUserRole()
+
 
     // ANIMATIONS
     const fadeFromLeft = {
@@ -32,6 +35,7 @@ const ApartmentCard = ({apartment}) => {
     }
 
     const handleAgreement = () =>{
+       if(userRole !== 'admin'){
         const submissionTime = dateTime(toDate)
         const userInfo ={apartmentId:_id, name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
         axiosSecure.post(`/agreements`, userInfo)
@@ -43,6 +47,9 @@ const ApartmentCard = ({apartment}) => {
                 refetch()
             }
         })
+       }else{
+        Swal.fire({position: "top-end", icon: "error", title: "Only a user or Member can sign an agreement", showConfirmButton: false, timer: 1500});
+       }
         
     }
     return (

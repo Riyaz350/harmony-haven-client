@@ -37,7 +37,7 @@ const handleEmailRegister = e=>{
         e.target.reset()
         Swal.fire({position: "top-end", icon: "success", title: "Please Sign In again", showConfirmButton: false, timer: 1500});
 
-        const userInfo = {email:email, name:name, photo:photo,  role:'user',}
+        const userInfo = {email:email, name:name, photo:photo,  role:'user', owned: ''}
         axiosPublic.post('/users', userInfo )
         .then()
         

@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "./useAxiosSecure";
-import useUserRole from "./useUserRole";
 
 const useUserInfo = () => {
     const axiosSecure = useAxiosSecure()
@@ -13,7 +12,6 @@ const useUserInfo = () => {
                 return res.data
         }
     })
-    console.log(users)
     return [users, userLoading, refetch]
 };
 
