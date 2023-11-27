@@ -2,7 +2,10 @@ import useAgreements from "../../../../../Hooks/useAgreements";
 import AgreementsRow from "./AgreementsRow";
 
 const AgreementRequest = () => {
-    const [agreements, refetch, agreementLoading] =useAgreements()
+    const [agreements, , loading] =useAgreements()
+    if(loading){
+        return <><span className="loading w-1/6 mx-auto py-80 text-center block loading-spinner text-[#00a9a5]"></span></>
+    }
     return (
         <div>
             <div className="lg:min-h-screen">
@@ -25,10 +28,12 @@ const AgreementRequest = () => {
                         <th></th>
                     </tr>
                 </thead>
+
+                
                 
                 <tbody >
                 {
-                agreements.map(agreement =><AgreementsRow key={agreement._id} agreement={agreement} ></AgreementsRow>)
+                agreements.map(agreement =><AgreementsRow key={agreement._id} agreement={agreement}  ></AgreementsRow>)
                 }
                 </tbody>
 

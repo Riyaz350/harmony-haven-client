@@ -7,14 +7,14 @@ const useAgreements = () => {
     const {user} =useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
 
-    const {data: agreements=[], refetch, isPending:agreementLoading} =useQuery({
+    const {data: agreements=[], refetch, isLoading:loading} =useQuery({
         queryKey:['agreement'],
         queryFn: async()=>{
                 const res = await axiosSecure.get(`/agreements?status=pending`)
                 return res.data
         }
     })
-    return [agreements, refetch, agreementLoading]
+    return [agreements, refetch, loading]
 };
 
 export default useAgreements;
