@@ -18,7 +18,11 @@ const AgreementsRow = ({agreement}) => {
             refetchAgreements()
         })
 
-        axiosSecure.patch(`/users/${email}` , [ {role: 'member'},{owned: apartmentId} ])
+        axiosSecure.patch(`/users/${email}` ,  {role: 'member'} )
+        .then(()=>{
+            refetch()
+        })
+        axiosSecure.patch(`/owner/${email}` ,{owned: apartmentId} )
         .then(()=>{
             refetch()
         })

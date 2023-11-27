@@ -44,7 +44,7 @@ const ManageMemberRow = ({user}) => {
               
                 
               // demoting member
-              axiosSecure.patch(`/users/${email}` ,[ {role: 'user'}, {owned: []}])
+              axiosSecure.patch(`/users/${email}` , {role: 'user'})
               .then(res=>{
                 if(res.data.modifiedCount){
                   Swal.fire({
