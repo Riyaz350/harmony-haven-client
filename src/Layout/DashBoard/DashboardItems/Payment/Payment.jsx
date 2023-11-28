@@ -1,35 +1,23 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../../Provider/AuthProvider";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
-import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "./CheckoutForm";
 
 const Payment = () => {
-    const {user} =useContext(AuthContext)
-    const axiosSecure = useAxiosSecure()
-    const axiosPublic = useAxiosPublic()
-    const [rent, setRent] =useState(0)
-    const [agreement, setAgreement] =useState({})
-    const [userData, setUserData] =useState({})
-    // const [userData, userLoading, refetch] =useCurrentUserInfo()
+    const stripePromise = loadStripe('pk_test_51OEl6tDtrzCD47eSmP1QLWLlOimC39oPduE8hJ0UdHBNrz6efXl2qSHOwOqb1PRKD1Kl6LAZCf6laBov2vYtqD0V00YTABbzTD');
 
-    useEffect(()=>{
-        axiosSecure.get(`/users/${user?.email}`)
-        .then(res=>setUserData(res.data))
-
-        if(userData?.acceptedAgreement){
-            axiosSecure.get(`/agreements/${userData?.acceptedAgreement}`)
-            .then(res=>{
-                setAgreement(res.data)
-                setRent(res.data.rent)
-            })
-        }
-
-
-    },[user?.email, axiosSecure, userData?.acceptedAgreement])
+   
 
     return (
         <div>
-            <h1>pay</h1>
+             <div>
+                
+                <div>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm></CheckoutForm>
+                    </Elements>
+                </div>
+        </div>
         </div>
     );
 };
