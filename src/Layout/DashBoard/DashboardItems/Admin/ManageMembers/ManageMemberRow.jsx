@@ -22,13 +22,18 @@ const ManageMemberRow = ({user}) => {
             if (result.isConfirmed) {
 
               //   Reoccupying apartment
-              const apartmentIds = owned.join(',');
 
-              axiosPublic.patch(`/apartmentos?ids=${apartmentIds}`)
-              .then(res=> console.log(res))
-
-
-
+              axiosPublic.patch(`/apartmentsData?id=${owned}`)
+              .then(res=> {
+                if(res.data.modifiedCount>0){
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: `${name} has been demoted to User & his apartment is ready to be rented.`,
+                    icon: "success"
+                  });
+                  refetch()
+                }
+              })
 
             // axiosSecure.patch(`/apartments/${_id}`, {status: 'notBooked'})
             // .then()
@@ -36,9 +41,9 @@ const ManageMemberRow = ({user}) => {
 
 
               // removing apartment ids
-              axiosSecure.patch(`/user/${email}` , {owned: []})
+              axiosSecure.patch(`/user/${email}` , {owned: ''})
               .then(()=>{
-
+                  
               })
 
               
@@ -46,7 +51,7 @@ const ManageMemberRow = ({user}) => {
               // demoting member
               axiosSecure.patch(`/users/${email}` , {role: 'user'})
               .then(res=>{
-                if(res.data.modifiedCount){
+                if(res.data.modifiedCount>0){
                   Swal.fire({
                     title: "Deleted!",
                     text: `${name} has been demoted to User & his apartment is ready to be rented.`,

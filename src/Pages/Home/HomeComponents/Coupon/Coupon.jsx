@@ -15,7 +15,7 @@ const Coupon = () => {
 
         <div className='flex flex-col justify-center items-center lg:grid grid-cols-3 gap-3'>
             {
-                coupons[0].map(coupon => <CouponCard key={coupon.id} coupon={coupon}></CouponCard>)
+                coupons[0].map(coupon => <CouponCard key={coupon._id} coupon={coupon}></CouponCard>)
             }
         </div>
 
