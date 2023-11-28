@@ -4,14 +4,18 @@ import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 import useAgreements from '../../../../../Hooks/useAgreements';
 import Swal from 'sweetalert2';
 import useUserInfo from '../../../../../Hooks/useUserInfo';
+import { dateTime } from '../../../../../Utility/utilities';
 
 const AgreementsRow = ({agreement}) => {
     const [,,refetch] =useUserInfo()
+    const toDate = new Date()
     const [,refetchAgreements, loading] =useAgreements()
     const axiosSecure = useAxiosSecure()
     const{_id,userId, apartmentId, name, email, submissionTime, apartmentImage,status,room,  floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = agreement
 
     const handleApprove = () =>{
+        const submissionTime = dateTime(toDate)
+
         axiosSecure.patch(`/apartments/${apartmentId}`, {status: 'booked'})
         .then(res=>{
             Swal.fire({position: "top-end", icon: "success", title: "Request Approved", showConfirmButton: false, timer: 1500});
@@ -22,20 +26,13 @@ const AgreementsRow = ({agreement}) => {
         .then(()=>{
             refetch()
         })
-        axiosSecure.patch(`/owner/${email}` ,{owned: apartmentId} )
+        axiosSecure.patch(`/owner/${email}` ,{owned: apartmentId, acceptedAgreement:{_id}} )
         .then(()=>{
             refetch()
         })
         
-        
-
-        
-
-
-        axiosSecure.patch(`/agreements/${_id}`, {status: 'booked'})
-        .then(()=>{
-
-        })
+        axiosSecure.patch(`/agreements/${_id}`, {submissionTime, status:'booked'})
+        .then()
 
     }
     const handleReject = () =>{

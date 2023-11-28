@@ -37,7 +37,7 @@ const ApartmentCard = ({apartment}) => {
     const handleAgreement = () =>{
        if(userRole !== 'admin'){
         const submissionTime = dateTime(toDate)
-        const userInfo ={apartmentId:_id, name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
+        const userInfo ={apartmentId:_id, acceptedTime:'', name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
         axiosSecure.post(`/agreements`, userInfo)
         .then(res => console.log(res))
         axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})

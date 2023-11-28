@@ -41,7 +41,7 @@ const ManageMemberRow = ({user}) => {
 
 
               // removing apartment ids
-              axiosSecure.patch(`/user/${email}` , {owned: ''})
+              axiosSecure.patch(`/user/${email}` , {owned: '', acceptedAgreement:''})
               .then(()=>{
                   
               })
