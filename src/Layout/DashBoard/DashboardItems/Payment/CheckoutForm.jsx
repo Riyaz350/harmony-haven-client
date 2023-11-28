@@ -19,7 +19,14 @@ const CheckoutForm = () => {
     const [rent, setRent] =useState(0)
     const [agreement, setAgreement] =useState({})
     const [userData, setUserData] =useState({})
+    const [month, setMonth] =useState('january')
+    console.log(month)
     // const [userData, userLoading, refetch] =useCurrentUserInfo()
+
+    const handleMonth = e => {
+        const val = e.target.value;
+        setMonth(val);
+    }
 
     useEffect(()=>{
         
@@ -90,7 +97,7 @@ const CheckoutForm = () => {
             rent: rent,
             transactionId: paymentIntent.id,
             data: new Date()  ,
-            month:''
+            month
         }
 
           const res = await axiosSecure.post('/payments', payment)
@@ -99,31 +106,47 @@ const CheckoutForm = () => {
       }
     }
 
+
     return (
         <div className="p-20">
+            <select value={month} onChange={handleMonth}>
+                <option value="january">january</option>
+                <option value="february">february</option>
+                <option value="march">march</option>
+                <option value="april">april</option>
+                <option value="may">may</option>
+                <option value="june">june</option>
+                <option value="july">july</option>
+                <option value="august">august</option>
+                <option value="september">september</option>
+                <option value="october">october</option>
+                <option value="november">november</option>
+                <option value="december">december</option>
+
+            </select>
         <form onSubmit={handleSubmit}>
- <CardElement
-   options={{
-     style: {
-       base: {
-         fontSize: '16px',
-         color: '#424770',
-         '::placeholder': {
-           color: '#aab7c4',
-         },
-       },
-       invalid: {
-         color: '#9e2146',
-       },
-     },
-   }}
- />
- <button type="submit" disabled={!stripe || !clientSecret}>
-   Pay
- </button>
- {transactionId ? <p className="text-3xl font-bold text-green-500">Rent Paid</p>: <p>None</p>}
-</form>
-   </div>
+            <CardElement
+            options={{
+                style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#424770',
+                    '::placeholder': {
+                    color: '#aab7c4',
+                    },
+                },
+                invalid: {
+                    color: '#9e2146',
+                },
+                },
+            }}
+            />
+            <button type="submit" disabled={!stripe || !clientSecret}>
+            Pay
+            </button>
+            {transactionId ? <p className="text-3xl font-bold text-green-500">Rent Paid</p>: <p>None</p>}
+        </form>
+        </div>
     );
 };
 
