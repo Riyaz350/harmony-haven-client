@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import { AuthContext } from '../../../../Provider/AuthProvider';
 import '../../../../App.css'
+import useCouponInfo from '../../../../Hooks/useCouponInfo';
 
 
 const CheckoutForm = () => {
@@ -13,13 +14,13 @@ const CheckoutForm = () => {
   const [couponCode, setCouponCode] =useState('')
     const stripe = useStripe()
     const elements = useElements()
+    const  [coupons, couponLoading] = useCouponInfo()
+    const couponExist = coupons.find(coupon => coupon.name == couponCode)
 
 
     const {user} =useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
-    const axiosPublic = useAxiosPublic()
     const [rent, setRent] =useState(0)
-    const [agreement, setAgreement] =useState({})
     const [userData, setUserData] =useState({})
     const [month, setMonth] =useState('january')
     // const [userData, userLoading, refetch] =useCurrentUserInfo()
@@ -37,7 +38,6 @@ const CheckoutForm = () => {
         if(userData?.acceptedAgreement){
             axiosSecure.get(`/agreements/${userData?.acceptedAgreement}`)
             .then(res=>{
-                setAgreement(res.data)
                 setRent(res.data.rent)
             })
         }
@@ -108,9 +108,15 @@ const CheckoutForm = () => {
 
     const useCoupon = e =>{
         e.preventDefault()
-        const discount = parseInt(couponCode)
-        const newRent = rent*discount/100
-        setRent(rent - newRent)
+        if(couponExist){
+
+            const discount = parseInt(couponCode)
+            const newRent = rent*discount/100
+            setRent(rent - newRent)
+        }else{
+            alert('wrong coupon')
+        }
+
     }
 
 
@@ -133,15 +139,16 @@ const CheckoutForm = () => {
             </select>
 
             {/* coupon stuff */}
-            <h1>Amount To Be Paid: {rent}</h1>
-            <form onSubmit={useCoupon}>
-            <input onChange={e=>setCouponCode(e.target.value)} type="text" placeholder='Place Your Coupon here' />
-            <button>Apply</button>
+            <h1 className='text-[#00a9a5] font-bold lg:text-3xl'>Amount To Be Paid: {rent}</h1>
+            <form className=' space-y-5 border-2 rounded-lg md:flex flex-col max-w-fit border-[#00a9a5]' onSubmit={useCoupon}>
+            <input className='lg:text-2xl border-b-2 w-fit border-[#00a9a5]' onChange={e=>setCouponCode(e.target.value)} type="text" placeholder='Place Your Coupon here' />
+            <button className='btn btnLandLord text-white'>Apply</button>
             </form>
 
 
         <form onSubmit={handleSubmit}>
             <CardElement
+            className='max-w-xl mt-2 lg:mt-10'
             options={{
                 style: {
                 base: {
