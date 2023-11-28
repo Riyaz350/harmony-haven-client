@@ -37,13 +37,27 @@ const AuthProvider = ({children}) => {
             setUser(currentUser)
             setLoading(false)
             if(currentUser){
-                axiosPublic.post('/jwt', loggedUser, {withCredentials:true})
-                .then()
+                // axiosPublic.post('/jwt', loggedUser, {withCredentials:true})
+                // .then()
+
+                const userEmail = {email: currentUser.email}
+                // create token
+                axiosPublic.post('/jwt', userEmail )
+                .then(res =>{
+                    if(res.data.token){
+                        localStorage.setItem('access-token', res.data.token)
+                        setLoading(false);
+
+                    }
+                })
             }
             else{
+
+                localStorage.removeItem('access-token')
+                setLoading(false);
                 // console.log('logged out')
-                axiosPublic.post('/logout', loggedUser, {withCredentials:true})
-                .then( )
+                // axiosPublic.post('/logout', loggedUser, {withCredentials:true})
+                // .then( )
             }
         })
         return()=>{
