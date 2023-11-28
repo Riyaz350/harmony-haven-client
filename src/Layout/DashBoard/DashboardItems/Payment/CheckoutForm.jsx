@@ -6,11 +6,14 @@ import { AuthContext } from '../../../../Provider/AuthProvider';
 import '../../../../App.css'
 import useCouponInfo from '../../../../Hooks/useCouponInfo';
 import Swal from 'sweetalert2';
+import { dateTime } from '../../../../Utility/utilities';
 
 
 const CheckoutForm = () => {
 
     const [clientSecret, setClientSecret] = useState()
+    const toDate = new Date()
+
   const [transactionId, setTransactionId] =useState("")
   const [couponCode, setCouponCode] =useState('')
     const stripe = useStripe()
@@ -56,6 +59,8 @@ const CheckoutForm = () => {
        },[axiosSecure, rent])
 
        const handleSubmit = async(e) =>{
+        const submissionTime = dateTime(toDate)
+
         e.preventDefault()
         if(!stripe || !elements) {
             return
@@ -97,7 +102,7 @@ const CheckoutForm = () => {
             email: user.email,
             rent: rent,
             transactionId: paymentIntent.id,
-            data: new Date()  ,
+            date: submissionTime  ,
             month
         }
 
