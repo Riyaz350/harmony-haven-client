@@ -10,7 +10,8 @@ const useCouponInfo = () => {
             return res.data
         }
     })
-    return [coupons, couponLoading, refetch]
+    const availableCoupons = coupons.filter(coupon => coupon.available == true)
+    return [coupons, couponLoading, refetch, availableCoupons]
 };
 
 export default useCouponInfo;

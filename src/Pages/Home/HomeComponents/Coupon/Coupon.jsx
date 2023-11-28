@@ -4,7 +4,7 @@ import CouponCard from './CouponCard';
 
 const Coupon = () => {
 
-    const coupons = useCouponInfo() 
+    const [,,,availableCoupons] = useCouponInfo() 
 
 
     return (
@@ -15,7 +15,7 @@ const Coupon = () => {
 
         <div className='flex flex-col justify-center items-center lg:grid grid-cols-3 gap-3'>
             {
-                coupons[0].map(coupon => <CouponCard key={coupon._id} coupon={coupon}></CouponCard>)
+                availableCoupons.map(coupon => <CouponCard key={coupon._id} coupon={coupon}></CouponCard>)
             }
         </div>
 

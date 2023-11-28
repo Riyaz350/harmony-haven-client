@@ -15,8 +15,8 @@ const CheckoutForm = () => {
   const [couponCode, setCouponCode] =useState('')
     const stripe = useStripe()
     const elements = useElements()
-    const  [coupons, couponLoading] = useCouponInfo()
-    const couponExist = coupons.find(coupon => coupon.name == couponCode)
+    const  [coupons, couponLoading,,availableCoupons] = useCouponInfo()
+    const couponExist = availableCoupons.find(coupon => coupon.name == couponCode)
 
 
     const {user} =useContext(AuthContext)
