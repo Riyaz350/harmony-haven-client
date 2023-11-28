@@ -5,6 +5,7 @@ import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import { AuthContext } from '../../../../Provider/AuthProvider';
 import '../../../../App.css'
 import useCouponInfo from '../../../../Hooks/useCouponInfo';
+import Swal from 'sweetalert2';
 
 
 const CheckoutForm = () => {
@@ -114,7 +115,7 @@ const CheckoutForm = () => {
             const newRent = rent*discount/100
             setRent(rent - newRent)
         }else{
-            alert('wrong coupon')
+            Swal.fire({position: "top-end", icon: "error", title: "Invalid coupon", showConfirmButton: false, timer: 1500});
         }
 
     }
