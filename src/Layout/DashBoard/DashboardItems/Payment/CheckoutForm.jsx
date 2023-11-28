@@ -3,12 +3,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import { AuthContext } from '../../../../Provider/AuthProvider';
+import '../../../../App.css'
 
 
 const CheckoutForm = () => {
 
     const [clientSecret, setClientSecret] = useState()
   const [transactionId, setTransactionId] =useState("")
+  const [couponCode, setCouponCode] =useState('')
     const stripe = useStripe()
     const elements = useElements()
 
@@ -20,7 +22,6 @@ const CheckoutForm = () => {
     const [agreement, setAgreement] =useState({})
     const [userData, setUserData] =useState({})
     const [month, setMonth] =useState('january')
-    console.log(month)
     // const [userData, userLoading, refetch] =useCurrentUserInfo()
 
     const handleMonth = e => {
@@ -48,7 +49,6 @@ const CheckoutForm = () => {
         if(rent > 0){
          axiosSecure.post(`/create-payment-intent`, {price: rent})
        .then(res => {
-         console.log(res.data)
          setClientSecret(res.data?.clientSecret)
        })
         }
@@ -106,10 +106,17 @@ const CheckoutForm = () => {
       }
     }
 
+    const useCoupon = e =>{
+        e.preventDefault()
+        const discount = parseInt(couponCode)
+        const newRent = rent*discount/100
+        setRent(rent - newRent)
+    }
+
 
     return (
         <div className="p-20">
-            <select value={month} onChange={handleMonth}>
+            <select value={month} className=' text-xl rounded-lg my-10 md:text-2xl bg-[#00a9a5] text-white font-bold px-10' onChange={handleMonth}>
                 <option value="january">january</option>
                 <option value="february">february</option>
                 <option value="march">march</option>
@@ -124,6 +131,15 @@ const CheckoutForm = () => {
                 <option value="december">december</option>
 
             </select>
+
+            {/* coupon stuff */}
+            <h1>Amount To Be Paid: {rent}</h1>
+            <form onSubmit={useCoupon}>
+            <input onChange={e=>setCouponCode(e.target.value)} type="text" placeholder='Place Your Coupon here' />
+            <button>Apply</button>
+            </form>
+
+
         <form onSubmit={handleSubmit}>
             <CardElement
             options={{
@@ -141,10 +157,10 @@ const CheckoutForm = () => {
                 },
             }}
             />
-            <button type="submit" disabled={!stripe || !clientSecret}>
+            <button className='btn btnLandLord rounded-md text-white lg:my-5' type="submit" disabled={!stripe || !clientSecret}>
             Pay
             </button>
-            {transactionId ? <p className="text-3xl font-bold text-green-500">Rent Paid</p>: <p>None</p>}
+            {transactionId ? <p className="text-3xl font-bold text-green-500">Rent Paid</p>: <p></p>}
         </form>
         </div>
     );
