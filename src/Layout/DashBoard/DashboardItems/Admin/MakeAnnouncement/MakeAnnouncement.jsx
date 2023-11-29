@@ -2,6 +2,7 @@ import Swal from 'sweetalert2';
 import '../../../../../App.css'
 import useAxiosSecure from '../../../../../Hooks/useAxiosSecure';
 import { dateTime } from '../../../../../Utility/utilities';
+import SubTitle from '../../../../../Hooks/SubTitle';
 const MakeAnnouncement = () => {
     const axiosSecure = useAxiosSecure()
 
@@ -25,7 +26,9 @@ const MakeAnnouncement = () => {
     return (
         <div className="flex  justify-center ">
             <div className="flex flex-col w-1/2 gap-10 justify-center items-start">
-            <h1 className="text-white font-bold  text-center bg-[#00a9a5] p-6 rounded-full ">Make An Announcement</h1>
+
+        <SubTitle title='Make An Announcement'></SubTitle>
+
             <form onSubmit={handleAnnouncement} className='space-y-4'>
             <input name="title" type="text" className="border-b-2 border-black w-fit h-20" placeholder="Announcement Title" />
             <textarea name="message" placeholder="Do not be shy..." className="textarea textarea-bordered textarea-lg w-full max-w-lg" ></textarea>

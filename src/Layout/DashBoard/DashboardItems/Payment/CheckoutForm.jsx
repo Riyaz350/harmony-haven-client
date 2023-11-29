@@ -7,13 +7,13 @@ import '../../../../App.css'
 import useCouponInfo from '../../../../Hooks/useCouponInfo';
 import Swal from 'sweetalert2';
 import { dateTime } from '../../../../Utility/utilities';
+import useUserAgreement from '../../../../Hooks/useUserAgreement';
 
 
 const CheckoutForm = () => {
     const {month} = useContext(AuthContext)
     const [clientSecret, setClientSecret] = useState()
     const toDate = new Date()
-    console.log(month)
 
   const [transactionId, setTransactionId] =useState("")
   const [couponCode, setCouponCode] =useState('')
@@ -27,24 +27,17 @@ const CheckoutForm = () => {
     const axiosSecure = useAxiosSecure()
     const [rent, setRent] =useState(0)
     const [userData, setUserData] =useState({})
+    const [agreement] = useUserAgreement()
     // const [userData, userLoading, refetch] =useCurrentUserInfo()
 
     
 
     useEffect(()=>{
         
-        axiosSecure.get(`/users/${user?.email}`)
-        .then(res=>setUserData(res.data))
+        
+                setRent(agreement.rent)
 
-        if(userData?.acceptedAgreement){
-            axiosSecure.get(`/agreements/${userData?.acceptedAgreement}`)
-            .then(res=>{
-                setRent(res.data.rent)
-            })
-        }
-
-
-    },[user?.email, axiosSecure, userData?.acceptedAgreement])
+    },[agreement.rent])
 
     useEffect(()=>{
         if(rent > 0){
@@ -104,7 +97,9 @@ const CheckoutForm = () => {
         }
 
           const res = await axiosSecure.post('/payments', payment)
-          console.log('payment ', res)
+          if(res.status === 200){
+            Swal.fire({position: "top-end", icon: "success", title: "Payment Successful", showConfirmButton: false, timer: 1500});
+          }
         }
       }
     }
@@ -156,7 +151,6 @@ const CheckoutForm = () => {
             <button className='btn btnLandLord rounded-md text-white lg:my-5' type="submit" disabled={!stripe || !clientSecret}>
             Pay
             </button>
-            {transactionId ? <p className="text-3xl font-bold text-green-500">Rent Paid</p>: <p></p>}
         </form>
         </div>
     );

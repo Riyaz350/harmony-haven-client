@@ -3,28 +3,13 @@ import useCurrentUserInfo from "../../../../Hooks/useCurrentUserInfo";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import useUserAgreement from "../../../../Hooks/useUserAgreement";
 
 const UserDashboard = () => {
     const {user} =useContext(AuthContext)
-    const axiosSecure = useAxiosSecure()
-    const axiosPublic = useAxiosPublic()
-    const [agreement, setAgreement] =useState({})
-    const [userData, setUserData] =useState({})
-    // const [userData, userLoading, refetch] =useCurrentUserInfo()
-
-    useEffect(()=>{
-        axiosSecure.get(`/users/${user?.email}`)
-        .then(res=>setUserData(res.data))
-
-        if(userData?.acceptedAgreement){
-            axiosSecure.get(`/agreements/${userData?.acceptedAgreement}`)
-            .then(res=>setAgreement(res.data))
-        }
+    const[agreement, agreementLoading] = useUserAgreement()
 
 
-    },[user?.email, axiosSecure, userData?.acceptedAgreement])
-
-    console.log(agreement)
     const {acceptedTime, apartmentId, apartmentNo, blockName, email, floorNo, name, rent, room, status, submissionTime, _id    } = agreement
     return (
         <div className="max-w-7xl mx-auto">
@@ -38,6 +23,7 @@ const UserDashboard = () => {
                 </div>
                 </div>
 
+            {agreementLoading && <span className="loading loading-spinner loading-lg"></span>}
                 <div className="my-10 lg:grid grid-cols-2 gap-10">
     
                     <div><div className="card static w-3/4 lg:w-full mx-auto bg-[#00a9a5] text-white font-bold  ">

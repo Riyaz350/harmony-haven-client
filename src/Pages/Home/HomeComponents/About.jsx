@@ -17,7 +17,7 @@ const About = () => {
     return (
 
         <div className="flex flex-col gap-10 my-10">
-            <SubTitle title='Apartment Complex' subTitle='About the'></SubTitle>
+            <SubTitle title='Harmony Haven' subTitle='About Us'></SubTitle>
 
             <div>
             <div className="hero  max-w-7xl mx-auto bg-base-200">
