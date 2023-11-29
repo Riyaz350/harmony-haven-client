@@ -4,7 +4,7 @@ import useUserAgreement from "../../../../Hooks/useUserAgreement";
 
 const UserDashboard = () => {
     const {user} =useContext(AuthContext)
-    const[agreement, agreementLoading] = useUserAgreement()
+    const[agreement] = useUserAgreement()
   
 
 
@@ -21,7 +21,7 @@ const UserDashboard = () => {
                 </div>
                 </div>
 
-            {agreementLoading && <span className="loading loading-spinner loading-lg"></span>}
+            {/* {agreementLoading && <span className="loading loading-spinner loading-lg"></span>} */}
                 <div className="my-10 lg:grid grid-cols-2 gap-10 space-y-5 lg:space-y-0">
     
                     <div><div className="card static w-3/4 lg:w-full mx-auto bg-[#00a9a5] text-white font-bold  ">

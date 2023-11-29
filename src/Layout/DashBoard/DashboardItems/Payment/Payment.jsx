@@ -10,7 +10,7 @@ const Payment = ({month}) => {
 
     return (
         <div>
-             <div>
+             <div className="w-full">
                 
                 <div>
                     <Elements stripe={stripePromise}>

@@ -124,8 +124,8 @@ const CheckoutForm = () => {
 
             {/* coupon stuff */}
             <h1 className='text-[#00a9a5] font-bold lg:text-3xl'>Amount To Be Paid: {rent}</h1>
-            <form className=' space-y-5 border-2 rounded-lg md:flex flex-col max-w-fit border-[#00a9a5]' onSubmit={useCoupon}>
-            <input className='lg:text-2xl border-b-2 w-fit border-[#00a9a5]' onChange={e=>setCouponCode(e.target.value)} type="text" placeholder='Place Your Coupon here' />
+            <form className=' space-y-5 border-2 rounded-lg md:flex flex-col lg:max-w-fit border-[#00a9a5]' onSubmit={useCoupon}>
+            <input className='lg:text-2xl border-b-2  border-[#00a9a5]' onChange={e=>setCouponCode(e.target.value)} type="text" placeholder='Place Your Coupon here' />
             <button className='btn btnLandLord text-white'>Apply</button>
             </form>
 

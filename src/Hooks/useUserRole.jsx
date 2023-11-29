@@ -4,8 +4,8 @@ import useAxiosPublic from './useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 
 const useUserRole = () => {
-    const axiosPublic = useAxiosPublic()
     const {user} =useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
 
     const {data: userRole=[], isPending: roleLoading, refetch} =useQuery({
         queryKey: [user?.email, 'userRole'],
