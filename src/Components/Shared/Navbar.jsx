@@ -39,7 +39,7 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <div><img src="https://i.ibb.co/pzBZnJQ/image.png" className="w-1/3 rounded-full" alt="" /></div>
             </div>
 
 

@@ -1,10 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import useCurrentUserInfo from "../../../../Hooks/useCurrentUserInfo";
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
-import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import useUserAgreement from "../../../../Hooks/useUserAgreement";
-import useUserRole from "../../../../Hooks/useUserRole";
 
 const UserDashboard = () => {
     const {user} =useContext(AuthContext)
@@ -12,7 +8,7 @@ const UserDashboard = () => {
   
 
 
-    const {acceptedTime, apartmentId, apartmentNo, blockName, email, floorNo, name, rent, room, status, submissionTime, _id    } = agreement
+    const {acceptedTime, apartmentId, apartmentNo, blockName, email, floorNo, name, rent, room, status, submissionTime, _id} = agreement
     return (
         <div className="max-w-7xl mx-auto">
                 <div>

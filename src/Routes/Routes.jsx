@@ -15,6 +15,8 @@ import ManageCoupons from "../Layout/DashBoard/DashboardItems/Admin/ManageCoupon
 import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
 import Pay from "../Layout/DashBoard/DashboardItems/Payment/Pay";
+import PrivateRoute from "./PrivateRoutes";
+import AdminRoutes from "./AdminRoutes";
 
   const Routes = createBrowserRouter([
     {
@@ -50,11 +52,11 @@ import Pay from "../Layout/DashBoard/DashboardItems/Payment/Pay";
 
         {
           path:'userHome',
-          element:<UserDashboard></UserDashboard>
+          element:<PrivateRoute><UserDashboard></UserDashboard></PrivateRoute>
         },
         {
           path:'announcements',
-          element:<Announcements></Announcements>
+          element:<PrivateRoute><Announcements></Announcements></PrivateRoute>
         },
 
 
@@ -62,15 +64,15 @@ import Pay from "../Layout/DashBoard/DashboardItems/Payment/Pay";
 
         {
           path:'pay',
-          element:<Pay></Pay>
+          element:<PrivateRoute><Pay></Pay></PrivateRoute>
         },
         {
           path:'payment',
-          element:<Payment></Payment>
+          element:<PrivateRoute><Payment></Payment></PrivateRoute>
         },
         {
           path:'paymentHistory',
-          element:<PaymentHistory></PaymentHistory>
+          element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
         },
 
 
@@ -79,23 +81,23 @@ import Pay from "../Layout/DashBoard/DashboardItems/Payment/Pay";
 
         {
           path:'adminHome',
-          element:<AdminHome></AdminHome>
+          element:<AdminRoutes><AdminHome></AdminHome></AdminRoutes>
         },
         {
           path:'manageMembers',
-          element:<ManageMembers></ManageMembers>
+          element:<AdminRoutes><ManageMembers></ManageMembers></AdminRoutes>
         },
         {
           path:'makeAnnouncement',
-          element:<MakeAnnouncement></MakeAnnouncement>
+          element:<AdminRoutes><MakeAnnouncement></MakeAnnouncement></AdminRoutes>
         },
         {
           path:'agreementRequest',
-          element:<AgreementRequest></AgreementRequest>
+          element:<AdminRoutes><AgreementRequest></AgreementRequest></AdminRoutes>
         },
         {
           path:'manageCoupons',
-          element:<ManageCoupons></ManageCoupons>
+          element:<AdminRoutes><ManageCoupons></ManageCoupons></AdminRoutes>
 
         }
       ]
