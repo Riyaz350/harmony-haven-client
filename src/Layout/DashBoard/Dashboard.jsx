@@ -29,7 +29,7 @@ const Dashboard = () => {
       }
       {userRole == 'member' && 
       <>
-      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/payment">Payment</NavLink>
+      <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/pay">Payment</NavLink>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/paymentHistory">Payment History</NavLink>
       </>
       }

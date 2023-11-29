@@ -10,9 +10,10 @@ import { dateTime } from '../../../../Utility/utilities';
 
 
 const CheckoutForm = () => {
-
+    const {month} = useContext(AuthContext)
     const [clientSecret, setClientSecret] = useState()
     const toDate = new Date()
+    console.log(month)
 
   const [transactionId, setTransactionId] =useState("")
   const [couponCode, setCouponCode] =useState('')
@@ -26,13 +27,9 @@ const CheckoutForm = () => {
     const axiosSecure = useAxiosSecure()
     const [rent, setRent] =useState(0)
     const [userData, setUserData] =useState({})
-    const [month, setMonth] =useState('january')
     // const [userData, userLoading, refetch] =useCurrentUserInfo()
 
-    const handleMonth = e => {
-        const val = e.target.value;
-        setMonth(val);
-    }
+    
 
     useEffect(()=>{
         
@@ -128,21 +125,7 @@ const CheckoutForm = () => {
 
     return (
         <div className="p-20">
-            <select value={month} className=' text-xl rounded-lg my-10 md:text-2xl bg-[#00a9a5] text-white font-bold px-10' onChange={handleMonth}>
-                <option value="january">january</option>
-                <option value="february">february</option>
-                <option value="march">march</option>
-                <option value="april">april</option>
-                <option value="may">may</option>
-                <option value="june">june</option>
-                <option value="july">july</option>
-                <option value="august">august</option>
-                <option value="september">september</option>
-                <option value="october">october</option>
-                <option value="november">november</option>
-                <option value="december">december</option>
-
-            </select>
+            
 
             {/* coupon stuff */}
             <h1 className='text-[#00a9a5] font-bold lg:text-3xl'>Amount To Be Paid: {rent}</h1>

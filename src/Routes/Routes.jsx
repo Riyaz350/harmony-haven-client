@@ -14,6 +14,7 @@ import AgreementRequest from "../Layout/DashBoard/DashboardItems/Admin/Agreement
 import ManageCoupons from "../Layout/DashBoard/DashboardItems/Admin/ManageCoupons/ManageCoupons";
 import LogIn from "../Pages/LogIn/LogIn";
 import Register from "../Pages/Register/Register";
+import Pay from "../Layout/DashBoard/DashboardItems/Payment/Pay";
 
   const Routes = createBrowserRouter([
     {
@@ -59,7 +60,10 @@ import Register from "../Pages/Register/Register";
 
         // Member only routes
 
-
+        {
+          path:'pay',
+          element:<Pay></Pay>
+        },
         {
           path:'payment',
           element:<Payment></Payment>

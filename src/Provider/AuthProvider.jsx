@@ -8,6 +8,7 @@ const AuthProvider = ({children}) => {
     const axiosPublic = useAxiosPublic()
     const [loading, setLoading] =useState(true)
     const [user, setUser] =useState(null)
+    const [month, setMonth] =useState('january')
 
     const createUser = ( email, password) =>{
         setLoading(true)
@@ -65,7 +66,7 @@ const AuthProvider = ({children}) => {
         }
     },[user?.email, axiosPublic])
 
-    const authInfo = { user,loading, createUser, signInUser,signInPop, logOut }
+    const authInfo = { user,loading,month, setMonth, createUser, signInUser,signInPop, logOut }
 
 return(
 <AuthContext.Provider value={authInfo}>
