@@ -31,44 +31,35 @@ const Pay = () => {
                 <div>
   
 
-            {/* {agreementLoading && <span className="loading loading-spinner loading-lg"></span>} */}
-                <div className="my-10 lg:grid grid-cols-2 gap-10 space-y-5 lg:space-y-0">
-    
-                    <div><div className="card static w-3/4 lg:w-full mx-auto bg-[#00a9a5] text-white font-bold  ">
-                        <div className="card-body text-center">
-                            <h2 className="text-sm lg:text-2xl">Email</h2>
-                            <p className="text-xl md:text-2xl lg:text-4xl">{email}</p>
-                        </div>
-                    </div></div>
+                <div className="my-10 lg:grid grid-cols-2 gap-10  flex flex-col  items-center  text-[#00a9a5]">
+ 
 
+                    <div className="text-xl md:text-5xl  items-center justify-center gap-2">
+                    <h1 className="font-bold">Email: </h1>
+                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={email} />
 
+                    </div>
+                    <div className="text-xl md:text-5xl items-center justify-center gap-2">
+                    <h1 className="font-bold">Floor: </h1>
+                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={floorNo} />
 
-                    <div><div className="card static w-3/4 lg:w-full  mx-auto bg-[#00a9a5] text-white font-bold  ">
-                        <div className="card-body text-center">
-                            <h2 className="text-sm lg:text-2xl">Floor</h2>
-                            <p className="text-xl md:text-2xl lg:text-4xl">{floorNo? floorNo: 'none'}</p>
-                        </div>
-                    </div></div>
+                    </div>
+                    <div className="text-xl md:text-5xl  items-center justify-center gap-2">
+                    <h1 className="font-bold">Block: </h1>
+                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={blockName} />
 
-                    <div><div className="card static w-3/4 lg:w-full  mx-auto bg-[#00a9a5] text-white font-bold  ">
-                        <div className="card-body text-center">
-                            <h2 className="text-sm lg:text-2xl">Block</h2>
-                            <p className="text-xl md:text-2xl lg:text-4xl">{blockName}</p>
-                        </div>
-                    </div></div>
+                    </div>
+                    <div className="text-xl md:text-5xl items-center justify-center gap-2">
+                    <h1 className="font-bold">Apartments No: </h1>
+                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={apartmentNo} />
+                    </div>
 
-                    <div><div className="card static w-3/4 lg:w-full mx-auto bg-[#00a9a5] text-white font-bold  ">
-                        <div className="card-body text-center">
-                            <h2 className="text-sm lg:text-2xl">Apartments No</h2>
-                            <p className="text-xl md:text-2xl lg:text-4xl">{apartmentNo}</p>
-                        </div>
-                    </div></div>
-                    <div><div className="card static w-3/4 lg:w-full mx-auto bg-[#00a9a5] text-white font-bold  ">
-                        <div className="card-body text-center">
-                            <h2 className="text-sm lg:text-2xl">Rent</h2>
-                            <p className="text-xl md:text-2xl lg:text-4xl">${rent}</p>
-                        </div>
-                    </div></div>
+                    <div className="text-xl md:text-5xl  items-center justify-center gap-2">
+                    <h1 className="font-bold">Rent: </h1>
+                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={apartmentNo} />
+
+                    </div>
+
 
                 </div>
             </div>

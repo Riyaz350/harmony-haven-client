@@ -4,7 +4,9 @@ import CouponCard from './CouponCard';
 
 const Coupon = () => {
 
-    const [,,,availableCoupons] = useCouponInfo() 
+    const [coupons] = useCouponInfo() 
+        const availableCoupons = coupons.filter(coupon => coupon.available == true)
+
 
 
     return (

@@ -3,15 +3,12 @@ import { FaRegUser } from "react-icons/fa";
 import '../../App.css'
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import useUserRole from '../../Hooks/useUserRole'
 
 
 
 const Navbar = () => {
 
     const {user, logOut} =useContext(AuthContext)
-    const [userRole] = useUserRole()
-    console.log(userRole)
     const active = 'btn font-bold bg-[#00a9a5] border-2 lg:w-auto w-full border-[#ffffff] text-[#ffffff] rounded-lg hover:bg-[#0b5351]  hover:border-[#ffffff]'
     const inActive = 'btn shadow-none bg-transparent border-2 border-transparent text-white font-bold lg:w-auto w-full hover:border-[#00a9a5] border-transparent rounded-lg hover:bg-[#00a9a5] hover:border-[#ffffff] hover:text-[#ffffff]'
 
@@ -41,7 +38,7 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
                 </div>
-                <div><img src="https://i.ibb.co/pzBZnJQ/image.png" className="w-1/3 rounded-full" alt="" /></div>
+                <div><img src="https://i.ibb.co/pzBZnJQ/image.png" className=" w-3/4 md:w-1/3 rounded-full" alt="" /></div>
             </div>
 
 

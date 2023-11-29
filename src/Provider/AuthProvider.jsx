@@ -38,8 +38,6 @@ const AuthProvider = ({children}) => {
             setUser(currentUser)
             setLoading(false)
             if(currentUser){
-                // axiosPublic.post('/jwt', loggedUser, {withCredentials:true})
-                // .then()
 
                 const userEmail = {email: currentUser.email}
                 // create token
@@ -56,9 +54,6 @@ const AuthProvider = ({children}) => {
 
                 localStorage.removeItem('access-token')
                 setLoading(false);
-                // console.log('logged out')
-                // axiosPublic.post('/logout', loggedUser, {withCredentials:true})
-                // .then( )
             }
         })
         return()=>{

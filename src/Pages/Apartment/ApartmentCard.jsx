@@ -42,12 +42,12 @@ const ApartmentCard = ({apartment}) => {
         .then(res => {
             if(res.status == 200){
                 refetch()
-                Swal.fire({position: "top-end", icon: "success", title: "Waiting for approval", showConfirmButton: false, timer: 1500});
             }
         })
         axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
         .then(res=> {
             if(res.status == 200){
+                Swal.fire({position: "top-end", icon: "success", title: "Waiting for approval", showConfirmButton: false, timer: 1500});
                 refetch()
             }
         })

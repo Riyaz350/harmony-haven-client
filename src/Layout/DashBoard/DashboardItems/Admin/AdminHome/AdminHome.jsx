@@ -6,14 +6,20 @@ import useUserInfo from "../../../../../Hooks/useUserInfo";
 const AdminHome = () => {
     const [apartments, apartmentLoading] =useApartmentInfo()
     const [availability, setAvailability] = useState(0)
+    const [unAvailability, setUnAvailability] = useState(0)
     const available = apartments.filter(apartment => apartment.status == 'notBooked')
+    const pending = apartments.filter(apartment => apartment.status == 'pending')
+    const unAvailable = apartments.filter(apartment => apartment.status == 'booked')
     const {user} =useContext(AuthContext)
     useEffect(()=>{
         if(apartments.length !== 0){
             const availablePercentage = (available?.length/apartments?.length) *100
-            setAvailability(availablePercentage)
+            const unAvailablePercentage = (unAvailable?.length/apartments?.length) *100
+            const pendingPercentage = (pending?.length/apartments?.length) *100
+            setAvailability(availablePercentage+pendingPercentage)
+            setUnAvailability(unAvailablePercentage)
         }
-    },[apartments.length, available?.length])
+    },[apartments.length, available?.length,pending?.length, unAvailable?.length])
 
     const [users, userLoading] = useUserInfo()
     const members = users.filter(user => user.role == 'member')
@@ -45,7 +51,7 @@ const AdminHome = () => {
                         <div><div className="card static w-3/4 lg:w-full  mx-auto bg-[#00a9a5] text-white font-bold  ">
                             <div className="card-body text-center">
                                 <h2 className="text-sm lg:text-2xl">Unavailable Rooms</h2>
-                                <p className="text-xl md:text-4xl lg:text-7xl">{100-availability}%</p>
+                                <p className="text-xl md:text-4xl lg:text-7xl">{unAvailability}%</p>
                             </div>
                         </div></div>
 

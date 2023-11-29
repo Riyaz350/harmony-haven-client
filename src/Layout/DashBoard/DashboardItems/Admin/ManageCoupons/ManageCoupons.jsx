@@ -30,13 +30,13 @@ const ManageCoupons = () => {
     return (
 
 
-<div className="lg:min-h-screen">
+<div className="lg:min-h-screen ">
             <SubTitle title='Manage Coupons'></SubTitle>
 
             
 
             <div className="overflow-x-auto max-w-7xl mx-auto my-5 ">
-             <table className="table w-full">
+             <table className="table w-full  static">
                 {/* head */}
                 <thead>
                     <tr className="text-xl">

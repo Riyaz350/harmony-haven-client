@@ -19,7 +19,8 @@ const CheckoutForm = () => {
   const [couponCode, setCouponCode] =useState('')
     const stripe = useStripe()
     const elements = useElements()
-    const  [coupons, couponLoading,,availableCoupons] = useCouponInfo()
+    const  [coupons, couponLoading] = useCouponInfo()
+    const availableCoupons= coupons.filter(coupon => coupon?.available == true)
     const couponExist = availableCoupons.find(coupon => coupon.name == couponCode)
 
 
