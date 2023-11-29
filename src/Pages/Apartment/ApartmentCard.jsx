@@ -15,12 +15,12 @@ import useUserRole from '../../Hooks/useUserRole'
 
 
 const ApartmentCard = ({apartment}) => {
-    const [,,refetch] =useApartmentInfo()
     const toDate = new Date()
     const {user} = useContext(AuthContext)
     const{_id, apartmentImage,status, floorNo, room, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
     const axiosSecure =useAxiosSecure()
     const [userRole] = useUserRole()
+    const [,,refetch] =useApartmentInfo()
 
 
     // ANIMATIONS
@@ -39,11 +39,15 @@ const ApartmentCard = ({apartment}) => {
         const submissionTime = dateTime(toDate)
         const userInfo ={apartmentId:_id, acceptedTime:'', name: user?.displayName, email:user?.email, floorNo, blockName, room, apartmentNo, rent, submissionTime, status:'pending' }
         axiosSecure.post(`/agreements`, userInfo)
-        .then(res => console.log(res))
-        axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
-        .then(res=>{
-            if(res.data.modifiedCount>0){
+        .then(res => {
+            if(res.status == 200){
+                refetch()
                 Swal.fire({position: "top-end", icon: "success", title: "Waiting for approval", showConfirmButton: false, timer: 1500});
+            }
+        })
+        axiosSecure.patch(`/apartments/${_id}`, {status: 'pending'})
+        .then(res=> {
+            if(res.status == 200){
                 refetch()
             }
         })

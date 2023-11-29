@@ -3,7 +3,6 @@ import ApartmentCard from './ApartmentCard'
 import '../../App.css'
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useContext, useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Apartment = () => {
@@ -12,8 +11,7 @@ const Apartment = () => {
     const apartmentsPerPage = 6
     const [length, setLength] = useState(0)
     const [current, setCurrent] =useState(0)
-    const [apartments, setApartments] = useState([])
-    // const [apartments, apartmentLoading, refetch] = useApartmentInfo(current, apartmentsPerPage)
+    const [apartments] = useApartmentInfo(current, apartmentsPerPage)
 
     const pageCount = Math.ceil(length/apartmentsPerPage)
     const pages = [...Array(pageCount).keys()]
@@ -22,11 +20,6 @@ const Apartment = () => {
 
 
    useEffect(()=>{
-    axiosPublic.get(`/apartments?page=${current}&size=${apartmentsPerPage}`)
-    .then(res =>{
-            setApartments(res.data)
-    }
-    )
 
     axiosPublic.get('/apartmentsCount')
     .then(res => setLength(res.data.count))

@@ -69,7 +69,7 @@ const ManageCoupons = () => {
                 <h1 className="text-white font-bold  text-center bg-[#00a9a5] p-6 rounded-full ">Make A Coupon</h1>
                 <form onSubmit={handleCoupons} className='space-y-4'>
                     <h1 className="text-red-500 font-bold text-lg">Write the percentage of discount in front of the coupon like this =10coupon</h1>
-                    <input name="title" type="text" className="border-b-2 border-black w-fit h-20" placeholder="Example '10coupon'" />
+                    <input name="title" type="text" className="border-b-2 border-black w-fit h-20" placeholder="Example = 10coupon" />
                     <textarea name="message" placeholder="Describe the coupon" className="textarea textarea-bordered textarea-lg w-full max-w-lg" ></textarea>
                     <button className='btnLandLord btn text-white'>Publish</button>
                 </form>
