@@ -3,6 +3,7 @@ import AgreementsRow from "./AgreementsRow";
 
 const AgreementRequest = () => {
     const [agreements, , loading] =useAgreements()
+    
     if(loading){
         return <><span className="loading w-1/6 mx-auto py-80 text-center block loading-spinner text-[#00a9a5]"></span></>
     }

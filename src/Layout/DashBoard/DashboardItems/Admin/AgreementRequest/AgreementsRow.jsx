@@ -6,20 +6,31 @@ import Swal from 'sweetalert2';
 import useUserInfo from '../../../../../Hooks/useUserInfo';
 import { dateTime } from '../../../../../Utility/utilities';
 import useUserAcceptedAgreement from '../../../../../Hooks/useUserAcceptedAgreement';
+import useCurrentUserInfo from '../../../../../Hooks/useCurrentUserInfo';
 
 const AgreementsRow = ({agreement}) => {
     const [,,refetch] =useUserInfo()
     const toDate = new Date()
     const [,refetchAgreements, loading] =useAgreements()
     const axiosSecure = useAxiosSecure()
+    const [users] = useUserInfo()
 
     const{_id,userId, apartmentId, name, email, submissionTime, apartmentImage,status,room,  floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = agreement
-
+    const userData = users.find(user => user?.email == email)
+    console.log(userData.owned)
     const handleApprove = () =>{
+
+        if(userData.owned){
+            Swal.fire({position: "top-end", icon: "error", title: `${name} already owns an apartment`, text:'Reject this request', showConfirmButton: false, timer: 1500});
+
+        }else{
+
+        
+
         const submissionTime = dateTime(toDate)
 
         axiosSecure.patch(`/apartments/${apartmentId}`, {status: 'booked'})
-        .then(res=>{
+        .then(()=>{
             Swal.fire({position: "top-end", icon: "success", title: "Request Approved", showConfirmButton: false, timer: 1500});
             refetchAgreements()
         })
@@ -35,6 +46,7 @@ const AgreementsRow = ({agreement}) => {
         
         axiosSecure.patch(`/agreements/${_id}`, {submissionTime, status:'booked'})
         .then()
+    }
 
     }
     const handleReject = () =>{
