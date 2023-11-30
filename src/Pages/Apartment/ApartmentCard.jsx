@@ -56,6 +56,10 @@ const ApartmentCard = ({apartment}) => {
        }
         
     }
+
+    const handleError =()=>{
+        Swal.fire({position: "top-end", icon: "error", title: "You already own an apartment,", text:'Multiple apartment owning will be available soon', showConfirmButton: false, timer: 1500});
+    }
     return (
         <div>
             <div>
@@ -81,12 +85,27 @@ const ApartmentCard = ({apartment}) => {
                     {heater? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
                     </div>
                 </div>
-                {user? 
+
+
+                {userRole =='user'? 
+                <div>
+                 <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>
+             </div>:
+             <></>}
+                {userRole =='member'? 
+                <div>
+                    <button onClick={handleError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             </div>:
+             <></>}
+
+
+
+
+                {/* {user? 
                 <div>
                 {status !== 'notBooked'? <p    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Pending/Booked</p> :
                  <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>}
              </div>:
-             <></>}
+             <></>} */}
                 </div>
                 
             </div>
