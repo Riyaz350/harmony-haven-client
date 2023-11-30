@@ -26,10 +26,8 @@ const LogIn = () => {
             })
         .catch((error)=>{
             console.log(error)
-            if(error.code === 'auth/user-not-found'){
-                Swal.fire({position: "top-end", icon: "error", title: "User Not Found", showConfirmButton: false, timer: 1500});
-            }else if(error.code  === 'auth/wrong-password'){
-                Swal.fire({position: "top-end", icon: "error", title: "Wrong Password", showConfirmButton: false, timer: 1500});
+            if(error){
+                Swal.fire({position: "top-end", icon: "error", title: "Wrong Credentials", showConfirmButton: false, timer: 1500});
             }
         })
     }
