@@ -92,11 +92,24 @@ const ApartmentCard = ({apartment}) => {
 
                 {userRole =='admin'? 
                 <div>
-                    <button onClick={handleAdminError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             </div>:
+                    {status == 'booked'?
+                
+                        <button onClick={handleAdminError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
+                      
+                        <button onClick={handleAdminError}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Available</p> </button>
+                    }
+                    </div>:
              <></>}
                 {userRole =='user'? 
                 <div>
-                 <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>
+                    {status == 'booked'?
+                
+                <button    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
+              
+                <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>
+            }
+
+                 {/* <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button> */}
              </div>:
              <></>}
                 {userRole =='member'? 
