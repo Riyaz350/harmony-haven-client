@@ -24,6 +24,8 @@ const Pay = () => {
     }
 
     const {acceptedTime, apartmentId, apartmentNo, blockName, email, floorNo, name, rent, room, status, submissionTime} = agreement
+    const input = 'w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg'
+    const div = "text-xl md:text-3xl  items-center justify-center gap-2"
     return (
         <div>
             <div className="max-w-7xl mx-auto">
@@ -31,32 +33,32 @@ const Pay = () => {
                 <div>
   
 
-                <div className="my-10 lg:grid grid-cols-2 gap-10  flex flex-col  items-center  text-[#00a9a5]">
+                <div className="my-10  gap-2  flex flex-col  items-center  text-[#00a9a5]">
  
 
-                    <div className="text-xl md:text-5xl  items-center justify-center gap-2">
+                    <div className={div}>
                     <h1 className="font-bold">Email: </h1>
-                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={email} />
+                    <input className={input} type="text" readOnly value={email} />
 
                     </div>
-                    <div className="text-xl md:text-5xl items-center justify-center gap-2">
+                    <div className={div}>
                     <h1 className="font-bold">Floor: </h1>
-                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={floorNo} />
+                    <input className={input} type="text" readOnly value={floorNo} />
 
                     </div>
-                    <div className="text-xl md:text-5xl  items-center justify-center gap-2">
+                    <div className={div}>
                     <h1 className="font-bold">Block: </h1>
-                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={blockName} />
+                    <input className={input} type="text" readOnly value={blockName} />
 
                     </div>
-                    <div className="text-xl md:text-5xl items-center justify-center gap-2">
+                    <div className={div}>
                     <h1 className="font-bold">Apartments No: </h1>
-                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={apartmentNo} />
+                    <input className={input} type="text" readOnly value={apartmentNo} />
                     </div>
 
-                    <div className="text-xl md:text-5xl  items-center justify-center gap-2">
+                    <div className={div}>
                     <h1 className="font-bold">Rent: </h1>
-                    <input className="w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg" type="text" readOnly value={apartmentNo} />
+                    <input className={input} type="text" readOnly value={rent} />
 
                     </div>
 
@@ -66,8 +68,9 @@ const Pay = () => {
     
 
 
-           <div className="flex flex-col text-center">
-           <select value={monthData} className=' text-xl rounded-lg my-10 md:text-2xl bg-[#00a9a5] text-white font-bold px-10 lg:w-1/5 h-[50px] md:h-[100px] mx-auto' onChange={handleMonth}>
+           <div className="flex flex-col text-center text-[#00a9a5]">
+            <h1 className="text-xl md:text-3xl text-">Select the months bill you wish to pay</h1>
+           <select value={monthData} className=' text-xl rounded-lg my-10 md:text-2xl bg-[#00a9a5] text-white font-bold px-2 lg:w-1/5  md:h-[50px] mx-auto' onChange={handleMonth}>
                 <option value="january">January</option>
                 <option value="february">February</option>
                 <option value="march">March</option>

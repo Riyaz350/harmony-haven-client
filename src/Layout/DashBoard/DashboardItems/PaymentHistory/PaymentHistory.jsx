@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import SubTitle from "../../../../Hooks/SubTitle";
 
 const PaymentHistory = () => {
 
@@ -33,9 +34,9 @@ const PaymentHistory = () => {
         <div className="lg:min-h-screen">
         
         <div className="flex flex-col items-center gap-10">
-            <h1 className="text-4xl text-center mt-10 text-white p-3 rounded-lg bg-[#00a9a5] w-fit mx-auto">Pending agreements</h1>
+            <SubTitle title='Payment History'></SubTitle>
             <form onSubmit={handleSearch} className=' space-y-5 border-2 rounded-lg md:flex flex-col max-w-fit border-[#00a9a5]'  >
-            <input onChange={e=>{setMonthName(e.target.value)}} className='lg:text-2xl border-b-2 w-fit border-[#00a9a5]'  type="text" placeholder={monthName} />
+            <input onChange={e=>{setMonthName(e.target.value)}} className='lg:text-2xl border-b-2  w-fit p-2 border-[#00a9a5] focus:outline-none m-1'  type="text" placeholder={monthName? monthName: 'Search by month'} />
             <button className='btn btnLandLord text-white'>Search</button>
             </form>
         </div>
