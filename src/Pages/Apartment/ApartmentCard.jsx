@@ -60,6 +60,10 @@ const ApartmentCard = ({apartment}) => {
     const handleError =()=>{
         Swal.fire({position: "top-end", icon: "error", title: "You already own an apartment,", text:'Multiple apartment owning will be available soon', showConfirmButton: false, timer: 1500});
     }
+
+    const handleAdminError = () =>{
+        Swal.fire({position: "top-end", icon: "error", title: "Only a user can sign an agreement", text:'Sign in as user to book an apartment', showConfirmButton: false, timer: 1500});
+    }
     return (
         <div>
             <div>
@@ -86,7 +90,10 @@ const ApartmentCard = ({apartment}) => {
                     </div>
                 </div>
 
-
+                {userRole =='admin'? 
+                <div>
+                    <button onClick={handleAdminError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             </div>:
+             <></>}
                 {userRole =='user'? 
                 <div>
                  <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>
@@ -98,14 +105,6 @@ const ApartmentCard = ({apartment}) => {
              <></>}
 
 
-
-
-                {/* {user? 
-                <div>
-                {status !== 'notBooked'? <p    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Pending/Booked</p> :
-                 <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>}
-             </div>:
-             <></>} */}
                 </div>
                 
             </div>
