@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 
 const LogIn = () => {
+    const {user} = useContext(AuthContext)
     const {signInUser} =useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
@@ -17,9 +18,11 @@ const LogIn = () => {
         e.preventDefault()
         signInUser(email, password)
         .then(()=>{    
-            Swal.fire({position: "top-end", icon: "success", title: "Welcome to Harmony Haven", showConfirmButton: false, timer: 1500});
-            e.target.reset()
+            
+                Swal.fire({position: "top-end", icon: "success", title: "Welcome to Harmony Haven", showConfirmButton: false, timer: 1500});
+                e.target.reset()
                 navigate(location?.state? location.state :'/')
+            
             })
         .catch((error)=>{
             console.log(error)
