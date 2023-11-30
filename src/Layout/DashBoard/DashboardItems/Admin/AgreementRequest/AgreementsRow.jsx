@@ -5,12 +5,14 @@ import useAgreements from '../../../../../Hooks/useAgreements';
 import Swal from 'sweetalert2';
 import useUserInfo from '../../../../../Hooks/useUserInfo';
 import { dateTime } from '../../../../../Utility/utilities';
+import useUserAcceptedAgreement from '../../../../../Hooks/useUserAcceptedAgreement';
 
 const AgreementsRow = ({agreement}) => {
     const [,,refetch] =useUserInfo()
     const toDate = new Date()
     const [,refetchAgreements, loading] =useAgreements()
     const axiosSecure = useAxiosSecure()
+
     const{_id,userId, apartmentId, name, email, submissionTime, apartmentImage,status,room,  floorNo, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = agreement
 
     const handleApprove = () =>{

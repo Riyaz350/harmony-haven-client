@@ -6,8 +6,6 @@ import CheckoutForm from "./CheckoutForm";
 const Payment = ({month}) => {
     const stripePromise = loadStripe('pk_test_51OEl6tDtrzCD47eSmP1QLWLlOimC39oPduE8hJ0UdHBNrz6efXl2qSHOwOqb1PRKD1Kl6LAZCf6laBov2vYtqD0V00YTABbzTD');
 
-   
-
     return (
         <div>
              <div className="w-full">

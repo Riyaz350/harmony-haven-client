@@ -31,7 +31,7 @@ const MakeAnnouncement = () => {
 
             <form onSubmit={handleAnnouncement} className='space-y-4'>
             <input name="title" type="text" className="border-b-2 border-black w-fit h-20" placeholder="Announcement Title" />
-            <textarea name="message" placeholder="Do not be shy..." className="textarea textarea-bordered textarea-lg w-full max-w-lg" ></textarea>
+            <textarea name="message" placeholder="Describe the announcement" className="textarea textarea-bordered textarea-lg w-full max-w-lg" ></textarea>
             <button className='btnLandLord btn text-white'>Publish</button>
             </form>
         </div>

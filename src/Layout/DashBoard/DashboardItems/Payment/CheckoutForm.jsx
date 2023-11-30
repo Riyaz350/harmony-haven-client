@@ -27,11 +27,8 @@ const CheckoutForm = () => {
     const {user} =useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
     const [rent, setRent] =useState(0)
-    const [userData, setUserData] =useState({})
     const [agreement] = useUserAgreement()
-    // const [userData, userLoading, refetch] =useCurrentUserInfo()
-
-    
+   
 
     useEffect(()=>{
         

@@ -8,7 +8,7 @@ const useUserAcceptedAgreement = () => {
     const axiosSecure = useAxiosSecure()
 
 
-    const {data: userData={}} =useQuery({
+    const {data: userData={}, refetch:fetch} =useQuery({
             queryKey: [user?.email,'userData'],
             queryFn: async()=>{
                 const res = await axiosSecure.get(`/users/${user.email}`)
@@ -16,7 +16,7 @@ const useUserAcceptedAgreement = () => {
                 return res.data
             }
         })
-        return [userData]
+        return [userData, fetch]
 
 };
 

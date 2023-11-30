@@ -23,7 +23,7 @@ const Pay = () => {
         navigate('/dashboard/payment')
     }
 
-    const {acceptedTime, apartmentId, apartmentNo, blockName, email, floorNo, name, rent, room, status, submissionTime} = agreement
+    const { apartmentNo, blockName, email, floorNo, rent,} = agreement
     const input = 'w-3/4 lg:w-full h-fit border-2 md:border-4 border-[#00a9a5] rounded-lg'
     const div = "text-xl md:text-3xl  items-center justify-center gap-2"
     return (
