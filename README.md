@@ -1,6 +1,6 @@
 # About Harmony Havens
 
-Live Link: https://65681c58a047bb6356b518e2--lucent-pavlova-0f14b8.netlify.app
+Live Link: https://65682093eea59a66b4a2ba20--stupendous-kitten-7148c9.netlify.app
 
 Harmony Havens is an apartment complex managing web app that allows visitors to <br> create account and visit our apartments that are available for renting. <br> The key features of this website are...
 - Anyone can visit the apartments and request for booking.
