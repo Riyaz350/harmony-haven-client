@@ -4,7 +4,7 @@ Live Link: https://6568263afe8d95692e5ee16a--cute-vacherin-eb6d20.netlify.app
 
 Server Link: https://github.com/Riyaz350/harmony-haven-server
 
-Technologies used in this project: JavaScript, React, React Router, Tailwind, DaisyUI, Firebase, MongoDB
+Technologies used in this project: JavaScript, React, React Router, Tailwind, DaisyUI, Firebase, MongoDB, React stripe.js
 
 Harmony Havens is an apartment complex managing web app that allows visitors to <br> create account and visit our apartments that are available for renting. <br> The key features of this website are...
 - Anyone can visit the apartments and request for booking.
