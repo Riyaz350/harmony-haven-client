@@ -1,9 +1,9 @@
-import useApartmentInfo from "../../Hooks/useApartmentInfo";
+import useApartmentInfo from "../../../Hooks/useApartmentInfo";
 import ApartmentCard from './ApartmentCard'
-import '../../App.css'
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import '../../../App.css'
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Apartment = () => {
     const{loading} =useContext(AuthContext)

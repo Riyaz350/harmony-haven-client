@@ -1,5 +1,5 @@
-import Subtitle from '../../../../Hooks/SubTitle'
-import useCouponInfo from '../../../../Hooks/useCouponInfo';
+import Subtitle from '../../../../../Hooks/SubTitle'
+import useCouponInfo from '../../../../../Hooks/useCouponInfo';
 import CouponCard from './CouponCard';
 
 const Coupon = () => {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import SubTitle from '../../../Hooks/SubTitle';
+import SubTitle from '../../../../Hooks/SubTitle';
 
 
 const About = () => {

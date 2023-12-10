@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import LocationMap from "./LocationMap";
 import LocationDirection from "./LocationDirection";
-import SubTitle from "../../../../Hooks/SubTitle";
+import SubTitle from "../../../../../Hooks/SubTitle";
 
 const Location = () => {
 

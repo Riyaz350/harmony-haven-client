@@ -1,7 +1,6 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
 import useCouponInfo from "../../../../../Hooks/useCouponInfo";
-import CouponCard from "../../../../../Pages/Home/HomeComponents/Coupon/CouponCard";
 import ManageCouponCard from "./ManageCouponCard";
 import SubTitle from "../../../../../Hooks/SubTitle";
 import '../../../../../App.css'

@@ -3,7 +3,7 @@ import About from "./HomeComponents/About";
 import Coupon from "./HomeComponents/Coupon/Coupon";
 import Location from "./HomeComponents/Location/Location";
 import Slider from "./HomeComponents/Slider";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const Home = () => {
