@@ -2,6 +2,9 @@
 
 Live Link: https://6568263afe8d95692e5ee16a--cute-vacherin-eb6d20.netlify.app
 
+Admin mail: phero@gmail.com
+Admin password: Phero@@
+
 Server Link: https://github.com/Riyaz350/harmony-haven-server
 
 Technologies used in this project: JavaScript, React, React Router, Tailwind, DaisyUI, Firebase, MongoDB, React stripe.js
