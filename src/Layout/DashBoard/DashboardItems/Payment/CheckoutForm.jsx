@@ -146,7 +146,7 @@ const CheckoutForm = () => {
                 },
             }}
             />
-            <button className='btn btnLandLord rounded-md text-white lg:my-5' type="submit" disabled={!stripe || !clientSecret}>
+            <button className='btn btnLandLord rounded-none text-white lg:my-5' type="submit" disabled={!stripe || !clientSecret}>
             Pay
             </button>
         </form>

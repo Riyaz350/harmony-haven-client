@@ -10,7 +10,7 @@ const UserDashboard = () => {
 
     const {acceptedTime, apartmentId, apartmentNo, blockName, email, floorNo, name, rent, room, status, submissionTime, _id} = agreement
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto pt-14">
                 <div>
                 <div className="lg:grid  grid-cols-3 bg-[#00a9a5] rounded-xl lg:p-0 py-5">
 

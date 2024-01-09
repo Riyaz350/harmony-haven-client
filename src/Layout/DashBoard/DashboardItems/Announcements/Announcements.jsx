@@ -5,7 +5,7 @@ import AnnouncementCard from "./AnnouncementCard";
 const Announcements = () => {
     const [announcements] = useAnnouncements()
     return (
-        <div className="lg:p-20 space-y-10">
+        <div className="lg:p-20 space-y-10 pt-14">
             <SubTitle title='Announcements By Authorities'></SubTitle>
             <div className="">
             {
