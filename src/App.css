@@ -1,11 +1,11 @@
 
 
 .btnLandLord {
-  background-color: #00a9a5;
+  background-color: #000000;
   border-radius: 50px;
 }
 .btnLandLord:hover {
-  color: #00a9a5;
+  color: #000000;
   background-color: white;
 }
 

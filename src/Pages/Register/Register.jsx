@@ -107,7 +107,7 @@ const handleEmailRegister = e=>{
 
 
                     <div className="form-control mt-4">
-                    <button className="btn  bg-white text-black font-bold border-black hover:shadow-white hover:bg-[#00a9a5] hover:text-white   ">Register</button>
+                    <button className="btn  bg-white text-black font-bold border-black hover:shadow-white hover:bg-[#000000] hover:text-white   ">Register</button>
                     </div>
 
                         

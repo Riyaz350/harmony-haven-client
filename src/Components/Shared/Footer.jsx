@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer bg-[#00a9a5] p-10 text-white max-w-full">
+            <footer className="footer bg-[#000000] p-10 text-white max-w-full">
                 <aside>
                 <img src="https://i.ibb.co/pzBZnJQ/image.png" className="w-1/3 rounded-full" alt="" />                        <p>ACME Industries Ltd.<br/>Providing reliable tech since 1992</p>
                 </aside> 

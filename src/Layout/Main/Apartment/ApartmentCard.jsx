@@ -74,19 +74,19 @@ const ApartmentCard = ({apartment}) => {
                 <div>
 
                 <h1 className="text-xl lg:text-3xl font-bold ">Apartment NO: {apartmentNo}</h1>
-                <p className="py-6 text-lg lg:text-xl">Floor: <span className='bg-[#00a9a5] p-2 rounded-full'>{floorNo}</span></p>
-                <p className="py-6 text-lg lg:text-xl">Block: <span className='bg-[#00a9a5] p-2 rounded-full'>{blockName}</span></p>
-                <p className="py-6 text-lg lg:text-xl">Rent: <span className='bg-[#00a9a5] p-2 rounded-full'>{rent}</span></p>
+                <p className="py-6 text-lg lg:text-xl">Floor: <span className='bg-[#000000] p-2 rounded-full'>{floorNo}</span></p>
+                <p className="py-6 text-lg lg:text-xl">Block: <span className='bg-[#000000] p-2 rounded-full'>{blockName}</span></p>
+                <p className="py-6 text-lg lg:text-xl">Rent: <span className='bg-[#000000] p-2 rounded-full'>{rent}</span></p>
                 </div>
                 <div className='space-y-2 mb-5'>
                     <h1 className='text-2xl'>Other Facilities</h1>
                     <div className='flex gap-5'>
-                    {balcony? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdBalcony /></motion.div>: <></>}
-                    {water? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><IoWaterOutline /></motion.div>: <></>}
-                    {gas? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' > <FaFireBurner /> </motion.div>: <></>}
-                    {electricity? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><TiLightbulb /></motion.div>: <></>}
-                    {airCondition? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><GiComputerFan /></motion.div>: <></>}
-                    {heater? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#00a9a5] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
+                    {balcony? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdBalcony /></motion.div>: <></>}
+                    {water? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><IoWaterOutline /></motion.div>: <></>}
+                    {gas? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' > <FaFireBurner /> </motion.div>: <></>}
+                    {electricity? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><TiLightbulb /></motion.div>: <></>}
+                    {airCondition? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><GiComputerFan /></motion.div>: <></>}
+                    {heater? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@ const ApartmentCard = ({apartment}) => {
                 
                         <button onClick={handleAdminError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
                       
-                        <button onClick={handleAdminError}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Available</p> </button>
+                        <button onClick={handleAdminError}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Available</p> </button>
                     }
                     </div>:
              <></>}
@@ -106,10 +106,10 @@ const ApartmentCard = ({apartment}) => {
                 
                 <button    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
               
-                <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button>
+                <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button>
             }
 
-                 {/* <button onClick={handleAgreement}  className= 'btn bg-[#00a9a5] hover:bg-white hover:text-[#00a9a5] text-white font-bold'> <p>Book Now</p> </button> */}
+                 {/* <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button> */}
              </div>:
              <></>}
                 {userRole =='member'? 

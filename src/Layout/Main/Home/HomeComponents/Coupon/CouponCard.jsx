@@ -28,7 +28,7 @@ const CouponCard = ({coupon}) => {
 
 
     return (
-        <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}  className="h-full flex flex-col w-3/4 rounded-xl bg-[#00a9a5] text-white p-2" >
+        <motion.div  variants={fadeinAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}  className="h-full flex flex-col w-3/4 rounded-xl bg-[#000000] text-white p-2" >
 
 
             <div className='text-base md:text-3xl bg-[#0b5351] p-1 px-2 rounded-xl flex justify-between'>

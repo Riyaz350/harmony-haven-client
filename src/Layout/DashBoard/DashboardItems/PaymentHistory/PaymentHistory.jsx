@@ -35,8 +35,8 @@ const PaymentHistory = () => {
         
         <div className="flex flex-col items-center gap-10">
             <SubTitle title='Payment History'></SubTitle>
-            <form onSubmit={handleSearch} className=' space-y-5 border-2 rounded-lg md:flex flex-col max-w-fit border-[#00a9a5]'  >
-            <input onChange={e=>{setMonthName(e.target.value)}} className='lg:text-2xl border-b-2  w-fit p-2 border-[#00a9a5] focus:outline-none m-1'  type="text" placeholder={monthName? monthName: 'Search by month'} />
+            <form onSubmit={handleSearch} className=' space-y-5 border-2 rounded-lg md:flex flex-col max-w-fit border-[#000000]'  >
+            <input onChange={e=>{setMonthName(e.target.value)}} className='lg:text-2xl border-b-2  w-fit p-2 border-[#000000] focus:outline-none m-1'  type="text" placeholder={monthName? monthName: 'Search by month'} />
             <button className='btn btnLandLord text-white'>Search</button>
             </form>
         </div>

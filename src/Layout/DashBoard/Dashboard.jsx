@@ -9,8 +9,8 @@ const Dashboard = () => {
     
     const [userRole] = useUserRole()
 
-    const active = 'btn font-bold bg-[#00a9a5] border-2  w-full border-[#ffffff] text-[#ffffff] rounded-lg hover:bg-[#0b5351]  hover:border-[#ffffff]'
-    const inActive = 'btn shadow-none bg-[#00a9a5] border-2 border-white text-white font-bold  w-full hover:border-[#00a9a5] border-transparent rounded-lg hover:bg-[#00a9a5] hover:border-[#ffffff] hover:text-[#ffffff]'
+    const active = 'btn font-bold bg-[#000000] border-2  w-full border-[#ffffff] text-[#ffffff] rounded-lg hover:bg-[#0b5351]  hover:border-[#ffffff]'
+    const inActive = 'btn shadow-none bg-[#000000] border-2 border-white text-white font-bold  w-full hover:border-[#000000] border-transparent rounded-lg hover:bg-[#000000] hover:border-[#ffffff] hover:text-[#ffffff]'
 
     const navLinks = < div className="z100 lg:flex flex-col items-start gap-1 space-y-1">
       <NavLink className={({ isActive, isPending,  }) =>isPending ? "pending" : isActive ? active : inActive} to="/">Home</NavLink>
@@ -45,11 +45,11 @@ const Dashboard = () => {
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* Page content here */}
-                <label htmlFor="my-drawer" className=" btn bg-transparent border-0 hover:bg-transparent font-bold lg:text-3xl text-[#00a9a5] drawer-button"><BsMenuButtonWideFill /></label>
+                <label htmlFor="my-drawer" className=" btn bg-white border-0 lg:p-1 hover:bg-transparent hover:text-white font-bold text-3xl text-[#000000] drawer-button"><BsMenuButtonWideFill /></label>
             </div> 
             <div className="drawer-side">
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="bg-[#00a9a5]  menu p-4 w-40 md:w-80 min-h-full  text-base-content">
+                <ul className="bg-[#000000]  menu p-4 w-40 md:w-80 min-h-full  text-base-content">
                 {/* Sidebar content here */}
                 {navLinks}
                 
