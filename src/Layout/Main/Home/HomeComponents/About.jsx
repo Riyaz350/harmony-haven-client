@@ -45,7 +45,7 @@ const About = () => {
 
             <div
 
-            className='lg:grid grid-cols-4 lg:gap-0 space-y-5 lg:space-y-0 items-center justify-center'>
+            className='md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-0 space-y-5 lg:space-y-0 items-center justify-center'>
             {aboutData.map((about, index)=><div key={index} className="hero  max-w-7xl mx-auto bg-white">
                     <div
                     className="hero-content relative flex-col p-0 pb-10 h-[350px] border-0 w-10/12 justify-between items-center bg-black text-white text-center border-black rounded-lg">

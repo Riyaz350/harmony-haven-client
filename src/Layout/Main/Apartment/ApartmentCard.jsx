@@ -80,7 +80,6 @@ const ApartmentCard = ({apartment}) => {
                 </div>
                <div className=''>
                 <div>
-
                 <h1 className="text-xl lg:text-3xl font-bold ">Apartment NO: {apartmentNo}</h1>
                 <p className="py-6 text-lg lg:text-xl">Floor: <span className={specClass}>{floorNo}</span></p>
                 <p className="py-6 text-lg lg:text-xl">Block: <span className={specClass}>{blockName}</span></p>
