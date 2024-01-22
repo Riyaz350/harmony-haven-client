@@ -22,19 +22,19 @@ const Dashboard = () => {
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/agreementRequest">Agreement Request</NavLink>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/manageCoupons">Manage Coupons</NavLink>
       </>
-      }
+       }
       {userRole !== 'admin' && 
       <>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/userHome">User Home</NavLink>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/announcements">Announcements</NavLink>
       </>
-      }
+       }
       {userRole == 'member' && 
       <>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/pay">Payment</NavLink>
       <NavLink className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? active : inActive} to="/dashboard/paymentHistory">Payment History</NavLink>
       </>
-      }
+       }
 
 
       </div>

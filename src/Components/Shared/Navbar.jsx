@@ -11,8 +11,8 @@ const Navbar = () => {
 
     const {user, logOut} =useContext(AuthContext)
     const [userRole] =useUserRole()
-    const active = 'btn font-bold bg-[#000000] border-2 lg:w-auto w-full border-[#ffffff] text-[#ffffff] rounded-lg hover:bg-[#0b5351]  hover:border-[#ffffff]'
-    const inActive = 'btn shadow-none bg-transparent border-2 border-transparent text-white font-bold lg:w-auto w-full hover:border-[#000000] border-transparent rounded-lg hover:bg-[#000000] hover:border-[#ffffff] hover:text-[#ffffff]'
+        const active = 'btn shadow-none font-bold bg-transparent rounded-none  border-0 lg:w-auto w-full border-[#ffffff] text-[#e94f37]  hover:bg-transparent  border-b-[#e94f37] hover:border-b-[#e94f37] hover:border-b-2 border-b-2 border-transparent'
+        const inActive = 'btn shadow-none font-bold bg-transparent rounded-none  border-0 lg:w-auto w-full border-[#ffffff] text-[#ffffff]  hover:bg-transparent  hover:border-b-[#e94f37] hover:border-b-2 border-b-2 border-transparent'
 
 
     const navLinks = < div className=" lg:flex items-center gap-6 space-y-1">
@@ -28,7 +28,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-black bg-opacity-30 z-10 ">
+            <div className="navbar bg-black z-10 ">
 
                 
             <div className="navbar-start">
@@ -40,7 +40,7 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
                 </div>
-                <div><img src="https://i.ibb.co/pzBZnJQ/image.png" className=" w-3/4 md:w-1/3 rounded-full" alt="" /></div>
+                <div><img src="https://i.ibb.co/BL7SFJf/harmony-haven-high-resolution-logo-transparent-3.png" className=" w-3/4 md:w-1/5" alt="" /></div>
             </div>
 
 

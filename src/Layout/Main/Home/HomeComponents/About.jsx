@@ -1,96 +1,70 @@
 import { motion } from 'framer-motion';
 import SubTitle from '../../../../Hooks/SubTitle';
+import { GiCctvCamera } from "react-icons/gi";
+import { FaSchool } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 
 const About = () => {
 
-    const fadeFromLeft = {
-        initial:{ opacity: 0, x: -200 },
-        animate: { opacity: 3, x: 0 } 
-    }
-    const fadeFromRight = {
-        initial:{ opacity: 0, x: 200 },
-        animate: { opacity: 3, x: 0 } 
-    }
+    const aboutData = [
+        {
+            img:"https://i.ibb.co/NszHM5z/image.png",
+            title:"Location and Accessibility",
+            icon:<FaLocationDot />,
+            para:"Centrally located, our apartments offer seamless access to transit, shopping, and schools, ensuring convenience and a vibrant lifestyle."
+        },
+        {
+            img:"https://i.ibb.co/CQZKz1s/image.png",
+            title:"Cozy Apartments",
+            icon:<FaHome />,
+            para:"Our cozy apartments redefine comfort, creating a warm and inviting atmosphere within our modern and well-designed apartment complexes."
+        },
+        {
+            img:"https://i.ibb.co/Vpqf1Zv/scott-webb-yek-GLpc3vro-unsplash.jpg",
+            title:"Robust Security",
+            icon:<GiCctvCamera />            ,
+            para:"Our cutting-edge security employs advanced technology for unparalleled property protection, ensuring peace of mind and utmost safety for you."
+        },
+        {
+            img:"https://i.ibb.co/HC2rLJN/joe-pee-o-QIn0-Ckxqs-Y-unsplash.jpg",
+            title:"School Side Living",
+            icon:<FaSchool />,
+            para:"Adjacent to a prestigious school, our complex ensures convenient living with educational opportunities for residents."
+        }
+    ]
+
+
 
 
     return (
 
-        <div className="flex flex-col gap-10 my-10">
-            <SubTitle title='Harmony Haven' subTitle='About Us'></SubTitle>
+        <div className="flex flex-col gap-10 my-10 overflow-hidden">
+            <SubTitle title='Why Choose Us' ></SubTitle>
 
-            <div>
-            <div className="hero  max-w-7xl mx-auto bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <motion.img
-                variants={fadeFromLeft}
-                initial='initial'
-                whileInView='animate'
-                transition={{ duration: 1 }}
-                viewport={{once:true}}
-                src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                <h1 className="text-xl lg:text-3xl font-bold">Introduction:</h1>
-                <p className="py-6 text-lg lg:text-xl">Welcome to Harmony Haven Estates where modern living meets tranquility. As the proud owner of this exclusive apartment complex, I invite you to experience unmatched comfort and sophistication. Nestled in <b>Gulshan Dhaka</b> , our residences offer a perfect blend of luxury amenities, scenic views, and a community-focused environment. Welcome home to Serenity Heights.</p>
-                </div>
-            </div>
-            </div>
-            </div>
+            <div
 
-
-            <div>
-            <div className="hero  max-w-7xl mx-auto bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
-                <motion.img
-                variants={fadeFromRight}
-                initial='initial'
-                whileInView='animate'
-                transition={{ duration: 1 }}
-                viewport={{once:true}}
-                 src="https://i.ibb.co/PQp6x3p/image.png" className="lg:max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                <h1 className="text-xl lg:text-3xl font-bold">Cozy Apartments</h1>
-                <p className="py-6 text-lg lg:text-xl">Indulge in unparalleled comfort at our apartments. Every detail, from plush interiors to serene surroundings, is meticulously crafted for your well-being. Relax in spacious living areas, unwind on private balconies, and revel in the convenience of a home designed for ultimate comfort and tranquility. Welcome to your haven of coziness.</p>
-                </div>
-            </div>
-            </div>
-            </div>
-
-
-            <div>
-            <div className="hero  max-w-7xl mx-auto bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <motion.img
-                variants={fadeFromLeft}
-                initial='initial'
-                whileInView='animate'
-                transition={{ duration: 1 }}
-                viewport={{once:true}}
-                src="https://i.ibb.co/Vpqf1Zv/scott-webb-yek-GLpc3vro-unsplash.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                <h1 className="text-xl lg:text-3xl font-bold">Robust Security</h1>
-                <p className="py-6 text-lg lg:text-xl">Experience peace of mind in our secure apartment complex. Our top-notch security features, including 24/7 surveillance, secure access points, and well-lit surroundings, prioritize your safety. Your well-being is our utmost concern, providing a worry-free environment for you to call home. Safe, serene, and secure – welcome to your sanctuary.</p>
-                </div>
-            </div>
-            </div>
-            </div>
-
-            <div>
-            <div className="hero  max-w-7xl mx-auto bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
-            <motion.img
-                variants={fadeFromRight}
-                initial='initial'
-                whileInView='animate'
-                transition={{ duration: 1 }}
-                viewport={{once:true}}
-                src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" />
-                <div>
-                <h1 className="text-xl lg:text-3xl font-bold">Property Highlights</h1>
-                <p className='"py-6 text-lg lg:text-xl"'>Discover luxury living at our apartment complex. Immerse yourself in modern comforts, scenic views, and unparalleled amenities. From spacious floor plans to state-of-the-art fitness centers, our property highlights redefine urban living. Experience elegance, convenience, and a vibrant community at the heart of <b>Gulshan Dhaka</b>. Welcome to the future of residential bliss.</p>
-                </div>
-            </div>
-            </div>
+            className='lg:grid grid-cols-4 lg:gap-0 space-y-5 lg:space-y-0 items-center justify-center'>
+            {aboutData.map((about, index)=><div key={index} className="hero  max-w-7xl mx-auto bg-white">
+                    <div
+                    className="hero-content relative flex-col p-0 pb-10 h-[350px] border-0 w-10/12 justify-between items-center bg-black text-white text-center border-black rounded-lg">
+                        <img
+                        src={about.img} className="h-[250px] w-full rounded-lg " />
+                        <div className=''>
+                        <h1 className="text-xl lg:text-2xl font-bold text-center">{about.title}</h1>
+                        </div>
+                        <motion.div
+                            initial={{ opacity: window.innerWidth > 1024 ? 0 : 1, y: window.innerWidth >1024? 100: 0 }}
+                            whileHover={{ opacity: 1, y:0 }}
+                            transition={{duration:.3}}
+                            className="font-medium flex flex-col gap-5 items-center w-full h-full bg-black bg-opacity-40 rounded-lg absolute top-0 py-6 text-lg lg:text-xl">
+                            <div className='text-4xl'>{about.icon}</div>
+                            {about.para}
+                        </motion.div>
+                    </div>
+    
+    </div>)}
             </div>
 
             

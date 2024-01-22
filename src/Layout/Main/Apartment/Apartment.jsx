@@ -4,6 +4,7 @@ import '../../../App.css'
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import SubTitle from "../../../Hooks/SubTitle";
 
 const Apartment = () => {
     const{loading} =useContext(AuthContext)
@@ -40,9 +41,12 @@ const handleNext = () =>{
 
     
     return (
-        <div>
+        <div className="mt-10">
+
+            <SubTitle title='Choose Your Apartment' ></SubTitle>
+
             { loading && <span className="loading w-1/6 mx-auto py-80 text-center block loading-spinner text-[#000000]"></span>}
-            <div className="lg:grid grid-cols-2 p-5 flex flex-col gap-10 py-28">
+            <div className="lg:grid grid-cols-2 p-5 flex flex-col gap-10 py-14">
                 {
                     apartments.map(apartment => <ApartmentCard key={apartment.id} apartment={apartment} refetch></ApartmentCard> )
                 }

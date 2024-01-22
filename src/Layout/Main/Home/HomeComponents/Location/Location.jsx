@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import LocationMap from "./LocationMap";
-import LocationDirection from "./LocationDirection";
 import SubTitle from "../../../../../Hooks/SubTitle";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css"
@@ -17,7 +16,7 @@ const Location = () => {
 
     const markers = [
       {
-        geocode:[23.970647, 91.106611],
+        geocode:[23.6148078, 90.502026],
         popUp: "We are here"
       }
     ]
@@ -32,17 +31,17 @@ const Location = () => {
                         <SubTitle  title='Directions' subTitle='Find Us'/>
 
         <nav>
-          <ul className="lg:grid  text-white">
+          <ul className="lg:grid py-5 text-white">
             {allTabs.map((item) => (
               <li
                 key={item.id}
                 className={item === selectedTab ? "selected" : ""}
                 onClick={() => setSelectedTab(item)}
               >
-                <div className=" bg-[#000000] rounded-xl w-1/3  mx-auto mt-10 p-2 cursor-pointer flex gap-2 items-center justify-center">
+                {/* <div className=" bg-[#000000] rounded-xl w-1/3  mx-auto mt-10 p-2 cursor-pointer flex gap-2 items-center justify-center">
                 <img className="w-1/4 " src={item.icon} alt="" />
                 <h1 className="text-xl">{item.name}</h1>
-                </div>
+                </div> */}
                 {item === selectedTab ? (
                   <motion.div className="underline" layoutId="underline" />
                 ) : null}
@@ -52,12 +51,8 @@ const Location = () => {
         </nav>
         <main >
 
-          <MapContainer center={[23.970647, 91.106611]} zoom={13}>
-                <TileLayer
-                    attribution= '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-
+          <MapContainer center={[23.6148078, 90.502026]} zoom={13}>
+                <TileLayer attribution= '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"/>
         {
           markers.map((marker,  index) =>(
             <Marker key={index} position={marker.geocode} icon={customIcon}></Marker>
