@@ -61,6 +61,10 @@ const ApartmentCard = ({apartment}) => {
         Swal.fire({position: "top-end", icon: "error", title: "You already own an apartment,", text:'Multiple apartment owning will be available soon', showConfirmButton: false, timer: 1500});
     }
 
+    const handleUnavailable =()=>{
+        Swal.fire({position: "top-end", icon: "error", title: "This apartment is booked already", showConfirmButton: false, timer: 1500});
+    }
+
     const handleAdminError = () =>{
         Swal.fire({position: "top-end", icon: "error", title: "Only a user can sign an agreement", text:'Sign in as user to book an apartment', showConfirmButton: false, timer: 1500});
     }
@@ -104,7 +108,7 @@ const ApartmentCard = ({apartment}) => {
                 <div>
                     {status == 'booked'?
                 
-                <button    className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
+                <button onClick={handleUnavailable}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
               
                 <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button>
             }
