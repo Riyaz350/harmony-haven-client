@@ -22,6 +22,8 @@ const ApartmentCard = ({apartment}) => {
     const [userRole] = useUserRole()
     const [,,refetch] =useApartmentInfo()
 
+    const specClass = 'bg-white text-black p-2 rounded-lg'
+    const faciClass = 'bg-white text-black p-2 rounded-lg w-fit text-xl lg:text-3xl p-2'
 
     // ANIMATIONS
     const fadeFromLeft = {
@@ -71,26 +73,28 @@ const ApartmentCard = ({apartment}) => {
     return (
         <div>
             <div>
-            <div className=" max-w-7xl mx-auto bg-[#092327] rounded-xl text-white">
+            <div className=" max-w-7xl mx-auto bg-black rounded-xl text-white">
             <div className="hero-content lg:flex flex-col items-start lg:items-center lg:justify-between  lg:flex-row-reverse ">
-               <div> <motion.img variants={fadeFromLeft} initial='initial' whileInView='animate' transition={{ duration: 1 }} viewport={{once:true}} src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" /></div>
+               <div> 
+                <motion.img variants={fadeFromLeft} initial='initial' whileInView='animate' transition={{ duration: 1 }} viewport={{once:true}} src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" />
+                </div>
                <div className=''>
                 <div>
 
                 <h1 className="text-xl lg:text-3xl font-bold ">Apartment NO: {apartmentNo}</h1>
-                <p className="py-6 text-lg lg:text-xl">Floor: <span className='bg-[#000000] p-2 rounded-full'>{floorNo}</span></p>
-                <p className="py-6 text-lg lg:text-xl">Block: <span className='bg-[#000000] p-2 rounded-full'>{blockName}</span></p>
-                <p className="py-6 text-lg lg:text-xl">Rent: <span className='bg-[#000000] p-2 rounded-full'>{rent}</span></p>
+                <p className="py-6 text-lg lg:text-xl">Floor: <span className={specClass}>{floorNo}</span></p>
+                <p className="py-6 text-lg lg:text-xl">Block: <span className={specClass}>{blockName}</span></p>
+                <p className="py-6 text-lg lg:text-xl">Rent: <span className={specClass}>{rent}</span></p>
                 </div>
                 <div className='space-y-2 mb-5'>
                     <h1 className='text-2xl'>Other Facilities</h1>
                     <div className='flex gap-5'>
-                    {balcony? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdBalcony /></motion.div>: <></>}
-                    {water? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><IoWaterOutline /></motion.div>: <></>}
-                    {gas? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' > <FaFireBurner /> </motion.div>: <></>}
-                    {electricity? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><TiLightbulb /></motion.div>: <></>}
-                    {airCondition? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><GiComputerFan /></motion.div>: <></>}
-                    {heater? <motion.div  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className='bg-[#000000] w-fit text-xl lg:text-3xl p-2 rounded-full' ><MdFireplace /></motion.div>: <></>}
+                    {balcony? <motion.div title='Balcony'  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className={faciClass} ><MdBalcony /></motion.div>: <></>}
+                    {water? <motion.div title='Water'  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><IoWaterOutline /></motion.div>: <></>}
+                    {gas? <motion.div title='Gas' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} > <FaFireBurner /> </motion.div>: <></>}
+                    {electricity? <motion.div title='Electricity' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><TiLightbulb /></motion.div>: <></>}
+                    {airCondition? <motion.div title='Cooler' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><GiComputerFan /></motion.div>: <></>}
+                    {heater? <motion.div title='Heater' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><MdFireplace /></motion.div>: <></>}
                     </div>
                 </div>
 
