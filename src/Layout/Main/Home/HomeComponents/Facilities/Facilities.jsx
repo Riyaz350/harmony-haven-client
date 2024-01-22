@@ -21,7 +21,7 @@ const Facilities = () => {
           icon: <IoWaterOutline />
         },
         {
-          title: 'Heater',
+          title: 'Gas',
           para: 'Warmth and coziness provided by a stylish and efficient fire burner.',
           icon: <FaFireBurner />
         },

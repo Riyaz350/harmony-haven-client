@@ -28,7 +28,7 @@ const Location = () => {
 
     return (
         <div className="window  max-w-5xl mx-auto  text-center text-black font-bold my-10">
-                        <SubTitle  title='Directions' subTitle='Find Us'/>
+                        <SubTitle  subTitle='Directions' title='Find Us'/>
 
         <nav>
           <ul className="lg:grid py-5 text-white">
