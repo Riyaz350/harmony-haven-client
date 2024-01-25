@@ -16,9 +16,9 @@ const Home = () => {
         <div className="overflow-hidden">
             
                <div> <Slider></Slider></div>
-            <About></About>
             {user && <Coupon></Coupon>}
             <Facilities></Facilities>
+            <About></About>
             <AboutUs></AboutUs>
             <Reviews></Reviews>
             <Location></Location>

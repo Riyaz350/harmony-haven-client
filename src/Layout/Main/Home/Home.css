@@ -1,0 +1,9 @@
+.hexagon-div {
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; /* Set the desired height */
+    background-image: url('https://i.ibb.co/MNvv1Yj/image.png');  /* Set your desired background color */
+    clip-path: polygon(0 0, 100% 10%,  100% 100%, 0 90%);
+
+}
+  

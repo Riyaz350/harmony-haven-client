@@ -43,7 +43,7 @@ const Facilities = () => {
       ];
 
     return (
-        <div className="max-w-7xl mx-auto my-20 flex flex-col gap-10 bottom-2 border-black">
+        <div className="max-w-7xl mx-auto my-10 flex flex-col gap-10 bottom-2 border-black">
             <SubTitle title="Facilities"></SubTitle>
             <h1 className="lg:flex space-y-2 lg:space-y-0 justify-around gap-2">
                 {itemsArray.map((item,index) =><div className="text-center border-2 space-y-2 flex flex-col justify-between p-2" key={index}>
