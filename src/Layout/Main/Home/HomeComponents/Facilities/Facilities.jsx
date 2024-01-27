@@ -15,6 +15,12 @@ import { PiTelevisionSimple } from "react-icons/pi";
 
 
 const Facilities = () => {
+  const swipeUp = {
+    initial:{y:50}, 
+    animate:{y: 0,}
+  }
+
+  
 
     const itemsArray = [
       {
@@ -83,15 +89,15 @@ const Facilities = () => {
     return (
         <div className="max-w-7xl mx-auto my-10 flex flex-col gap-10 bottom-2 border-black">
             <SubTitle title="Facilities"></SubTitle>
-            <h1 className="grid grid-cols-2 lg:grid-cols-4 space-y-2 lg:space-y-0 justify-around gap-2 lg:gap-10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 space-y-2 lg:space-y-0 justify-around gap-2 lg:gap-10">
                 {itemsArray.map((item,index) =>
-                <div className="text-center border-2 space-y-2 flex flex-col justify-between p-2" key={index}>
+                <motion.div variants={swipeUp} initial='initial' whileInView='animate'  transition={{ duration:0.6, delay:0.05*index}} className="text-center border-2 space-y-2 flex flex-col justify-between p-2" key={index}>
                     <motion.p initial={{scale:1}} whileHover={{scale:1.1}} className="text-2xl w-full flex justify-center lg:text-6xl">{item.icon}</motion.p>
                     <p className="text-xl lg:text-3xl">{item.title}</p>
                     <p className="text-sm">{item.para}</p>
-                </div>
+                </motion.div>
                 )}
-            </h1>
+            </div>
         </div>
     );
 };

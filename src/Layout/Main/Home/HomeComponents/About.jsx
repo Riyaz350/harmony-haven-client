@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import SubTitle from '../../../../Hooks/SubTitle';
 import { GiCctvCamera } from "react-icons/gi";
 import { FaSchool } from "react-icons/fa";
@@ -7,10 +7,23 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useKeenSlider } from 'keen-slider/react';
 import { MdManageAccounts } from "react-icons/md";
 import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { useInView } from 'react-intersection-observer';
+
 
 import '../Home.css'
+import { useState } from 'react';
 
 const About = () => {
+  const controls = useAnimation();
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [ref, inView] = useInView({ triggerOnce: true });
+
+  const flipCard = async () => {
+    if (inView && !isFlipped) {
+      await controls.start({ rotateY: 360 });
+      setIsFlipped(true);
+    }
+  };
 
     const aboutData = [
         {
@@ -106,8 +119,8 @@ const About = () => {
                 {/* </div> */}
                 <div className={`grid ${window.innerWidth <= 1024 ? 'grid-cols-2' : 'grid-cols-3'}  lg:gap-5 gap-16 lg:space-y-0  items-center    `}>
                 {aboutData.map((about, index)=>
-                <div key={index} className="hero hover:cursor-pointer flex w-[100px] h-[200px] md:w-1/2 md:h-1/2 lg:w-full lg:h-full justify-center mx-auto bg-white">
-                        <div className="hero-content  overflow-hidden relative flex-col p-0  w-[150px]  md:h-[200px] lg:h-full lg:w-full border-0  justify-center items-center bg-white text-black text-center border-black rounded-lg">
+                <motion.div whileInView={flipCard} animate={controls} transition={{duration:1}} ref={ref}  key={index} className=" hero hover:cursor-pointer flex w-[100px] h-[200px] md:w-1/2 md:h-1/2 lg:w-full lg:h-full justify-center mx-auto bg-white">
+                        <div className="hero-content  overflow-hidden relative flex-col p-0  w-[150px]  md:h-[200px] lg:h-full lg:w-full border-0  justify-center items-center bg-white text-black text-center border-black ">
                             {/* <img src={about.img} className=" w-full h-[200px] rounded-lg " /> */}
                             <div className='p-14 font-bold flex flex-col gap-5 justify-center items-center text-center'>
                             <div className='text-5xl'>{about.icon}</div>
@@ -122,7 +135,7 @@ const About = () => {
                                 {about.para}
                             </motion.div>
                         </div>
-                        </div>)}
+                        </motion.div>)}
                 </div>
             </div>
 

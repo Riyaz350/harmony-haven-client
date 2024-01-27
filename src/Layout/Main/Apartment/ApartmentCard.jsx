@@ -73,7 +73,7 @@ const ApartmentCard = ({apartment}) => {
     return (
         <div>
             <div>
-            <div className=" max-w-7xl mx-auto bg-black rounded-xl text-white">
+            <div className="   bg-black rounded-xl text-white">
             <div className="hero-content lg:flex flex-col items-start lg:items-center lg:justify-between  lg:flex-row-reverse ">
                <div> 
                 <motion.img variants={fadeFromLeft} initial='initial' whileInView='animate' transition={{ duration: 1 }} viewport={{once:true}} src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" />

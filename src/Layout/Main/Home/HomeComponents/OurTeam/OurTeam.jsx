@@ -1,4 +1,5 @@
 import SubTitle from "../../../../../Hooks/SubTitle";
+import { motion } from 'framer-motion';
 
 const OurTeam = () => {
     const teamStat = [
@@ -24,16 +25,16 @@ const OurTeam = () => {
     return (
             <div>
                 <SubTitle title='Our Team'></SubTitle>
-        <div className="md:grid grid-cols-3 space-y-10 lg:space-y-0 mx-auto  p-10">
+        <div   className="md:grid grid-cols-3 space-y-10 lg:space-y-0 mx-auto  p-10">
             {teamStat.map((team, index)=>
-                <div key={index} className="flex flex-col justify-between gap-5 lg:p-10 bg-white">
+                <motion.div initial={{y:80}} whileInView={{y:0}} transition={{duration:1, delay:0.05 * index}} useInView={{ triggerOnce: true }} key={index} className="flex flex-col justify-between gap-5 lg:p-10 bg-white">
                     <img className="w-full rounded-lg bg-orange-300 bg-opacity-30" src={team.img} alt="" />
                     <div>
                     <h1 className="text-xl font-bold">{team.name}</h1>
                     <h1 className="text-lg">{team.title}</h1>
                     </div>
                     <h1 className="text-base font-semibold">{team.para}</h1>
-                </div>
+                </motion.div>
              )}
         </div>
             </div>

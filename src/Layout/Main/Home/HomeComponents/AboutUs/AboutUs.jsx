@@ -5,6 +5,7 @@ import useUserInfo from "../../../../../Hooks/useUserInfo";
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 const AboutUs = () => {
@@ -23,41 +24,36 @@ const AboutUs = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto   relative">
-            <SubTitle className="" title='About Us'></SubTitle>
-           <div className="">
-           <motion.div initial={{x: -50}} animate={{x:0}} transition={{duration:1}} className="flex justify-end">
-                <img className="hidden lg:block" src="https://i.ibb.co/Jmd93dF/modern-residential-building-removebg-preview.png" alt="" />
-            </motion.div>
-            <div className=" lg:absolute w-full h-full top-10 bg-gradient-to-r from-white to-transparent via-white">
-                <div>
-                    <h1></h1>
-                </div>
-                    <div className="grid grid-cols-8 my-5  text-black  justify-start gap-10 flex-row w-3/4 lg:w-full lg:my-10 mx-auto   font-bold  ">
-                        <div className="col-span-4 lg:col-span-2 justify-between flex flex-col">
-                        <div className=" m-0 text-center">
-                            <div  className="text-xl md:text-2xl lg:text-7xl" ref={ref}> {isVisible && <CountUp end={20} duration={2.5} />}+</div>
-                            {/* <p>+</p> */}
-                            <h2 className="text-xs lg:text-xl">Years of Reputation</h2>
-                        </div>
-                        <div className=" m-0 text-center">
-                            <p className="text-xl md:text-2xl lg:text-7xl" ref={ref}>{isVisible && <CountUp end={apartments.length} duration={2.5} />}</p>
-                            <h2 className="text-xs lg:text-xl">Total Number Of Rooms</h2>
-                        </div>
-                        </div>
-                        <div className="col-span-4 lg:col-span-2 justify-between flex flex-col">
-                        <div className="m-0 text-center">
-                            <p className="text-xl md:text-2xl lg:text-7xl" ref={ref}>{isVisible &&<CountUp end={members.length} duration={2.5} />}</p>
-                            <h2 className="text-xs lg:text-xl">Total Residents</h2>
-                        </div>
-                        <div className="m-0 text-center">
-                            <p className="text-xl md:text-2xl lg:text-7xl" ref={ref}>{isVisible && <CountUp end={apartments.length - members.length} duration={2.5} />}</p>
-                            <h2 className="text-xs lg:text-xl">Total Available Rooms</h2>
-                        </div>
-                        </div>
+        <div className=" mx-auto  bg-cover relative bg-fixed bg-blend-overlay bg-black bg-opacity-50" style={{backgroundImage: 'url("https://i.ibb.co/6W78bjg/christian-lambert-hl-Op-CML8tw-I-unsplash-1.jpg")'}}>
+                {/* <div className="text-white">
+                <SubTitle className="" title='About Us'></SubTitle>
+                </div> */}
+
+            <div className="top-10 h-[400px]  md:flex  flex-col lg:flex-row items-center justify-center p-10">
+                <div className="flex flex-col items-center lg:items-start text-white space-y-5">
+                    <h1 className="text-xl lg:text-3xl">Living Spaces at a Glance</h1>
+                    <h1 className="text-sm text-center lg:text-start lg:text-base w-4/5">Explore our diverse range of living spaces—thoughtfully designed rooms for every lifestyle, fostering a vibrant community with various members.</h1>
+                    <NavLink className='mt-2 w-fit lg:mt-5 block p-1 lg:p-5 lg:text-xl text-xs border-2  border-white bg-white hover:text-[#e94f37] lg:w-fit  text-black ' to='/apartments'>Take A Peak</NavLink>                </div>
+
+                <div className="flex my-5 justify-center text-white md:gap-10 gap-5  w-3/4 lg:w-full lg:my-10 mx-auto  font-bold  ">
+                    <div className=" m-0 text-center">
+                        <div  className="text-xl md:text-2xl lg:text-7xl" ref={ref}> {isVisible && <CountUp end={20} duration={2.5} />}+</div>
+                        <h2 className="text-xs font-light lg:font-bold lg:text-xl">Years of Reputation</h2>
                     </div>
+                    <div className=" m-0 text-center">
+                        <p className="text-xl md:text-2xl lg:text-7xl" ref={ref}>{isVisible && <CountUp end={apartments.length} duration={2.5} />}</p>
+                        <h2 className="text-xs font-light lg:font-bold lg:text-xl">Total Number Of Rooms</h2>
+                    </div>
+                    <div className="m-0 text-center">
+                        <p className="text-xl md:text-2xl lg:text-7xl" ref={ref}>{isVisible &&<CountUp end={members.length} duration={2.5} />}</p>
+                        <h2 className="text-xs font-light lg:font-bold lg:text-xl">Total Residents</h2>
+                    </div>
+                    <div className="m-0 text-center">
+                        <p className="text-xl md:text-2xl lg:text-7xl" ref={ref}>{isVisible && <CountUp end={apartments.length - members.length} duration={2.5} />}</p>
+                        <h2 className="text-xs font-light lg:font-bold lg:text-xl">Total Available Rooms</h2>
+                    </div>
+                </div>
             </div>
-           </div>
         </div>
     );
 };
