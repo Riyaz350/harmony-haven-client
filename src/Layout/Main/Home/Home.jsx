@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import Facilities from "./HomeComponents/Facilities/Facilities";
 import Reviews from "./HomeComponents/Reviews/Reviews";
 import AboutUs from "./HomeComponents/AboutUs/AboutUs";
+import OurTeam from "./HomeComponents/OurTeam/OurTeam";
 
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
             {user && <Coupon></Coupon>}
             <Facilities></Facilities>
             <About></About>
+            <OurTeam></OurTeam>
             <AboutUs></AboutUs>
             <Reviews></Reviews>
             <Location></Location>
