@@ -117,21 +117,20 @@ const About = () => {
                 <h1 className='text-sm lg:text-xl font-medium'>With an illustrious history of unparalleled service, we take pride in consistently exceeding expectations. Our commitment to resident satisfaction is evident in every aspect, creating a legacy of excellence in apartment living.</h1> */}
 
                 {/* </div> */}
-                <div className={`grid ${window.innerWidth <= 1024 ? 'grid-cols-2' : 'grid-cols-3'}  lg:gap-5 gap-16 lg:space-y-0  items-center    `}>
+                <div className={`grid ${window.innerWidth <= 1024 ? 'grid-cols-2' : 'grid-cols-3'}  lg:gap-5 gap-16  items-center    `}>
                 {aboutData.map((about, index)=>
-                <motion.div whileInView={flipCard} animate={controls} transition={{duration:1}} ref={ref}  key={index} className=" hero hover:cursor-pointer flex w-[100px] h-[200px] md:w-1/2 md:h-1/2 lg:w-full lg:h-full justify-center mx-auto bg-white">
-                        <div className="hero-content  overflow-hidden relative flex-col p-0  w-[150px]  md:h-[200px] lg:h-full lg:w-full border-0  justify-center items-center bg-white text-black text-center border-black ">
-                            {/* <img src={about.img} className=" w-full h-[200px] rounded-lg " /> */}
-                            <div className='p-14 font-bold flex flex-col gap-5 justify-center items-center text-center'>
+                <motion.div whileInView={flipCard} animate={controls} transition={{duration:1}} ref={ref}  key={index} className=" hero hover:cursor-pointer flex   justify-center mx-auto ">
+                        <div className="hero-content  overflow-hidden relative flex-col p-0    h-[200px] lg:h-full md:w-full border-0  justify-center items-center backdrop-blur-lg bg-white/40 text-black text-center border-black ">
+                            <div className='lg:p-14 font-bold flex flex-col gap-5 justify-center items-center text-center'>
                             <div className='text-5xl'>{about.icon}</div>
 
-                            <h1 className="text-sm lg:text-xl f">{about.title}</h1>
+                            <h1 className="text-lg lg:text-xl ">{about.title}</h1>
                             </div>
                             <motion.div
-                                initial={{ opacity: window.innerWidth > 1024 ? 0 : 1, y: window.innerWidth >1024? 100: 0 }}
+                                initial={{ opacity:0 , y: 100 }}
                                 whileHover={{ opacity: 1, y:0 }}
                                 transition={{duration:.3}}
-                                className="font-semibold md:p-2 text-white flex flex-col gap-5 items-center  w-full h-full bg-black bg-opacity-80  absolute top-0 py-6 text-xs  lg:text-lg justify-center">
+                                className="font-semibold   flex flex-col gap-5 items-center  w-full h-full bg-white text-black  absolute top-0 py-6 text-xs  md:text-lg justify-center">
                                 {about.para}
                             </motion.div>
                         </div>
