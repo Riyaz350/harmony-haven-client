@@ -64,7 +64,7 @@ const handleEmailRegister = e=>{
         <div  className="py-20 lg:p-20">
             <div className={"text-black light-home max-w-xl rounded-3xl mx-auto my-20 py-10 px-5 lg:p-20 border-2 border-black"}>
                 <div className="text-center ">
-                <h1 className="text-3xl mb-10 lg:text-5xl font-bold ">Sign in </h1>
+                <h1 className="text-3xl mb-10 lg:text-5xl font-bold ">Register </h1>
                 </div>
                 <div className="bg-white p-10 rounded-xl">
                 <form onSubmit={handleEmailRegister} className="bg-white">

@@ -103,20 +103,15 @@ const About = () => {
 
     return (
 
-        <div style={{ backgroundImage: 'url("https://i.ibb.co/MNvv1Yj/image.png")' }} className="flex flex-col gap-10 my-10 overflow-hidden  lg:p-20 pt-20">
-            <div className=''>
-            <SubTitle title='Why Choose Us' ></SubTitle>
+        <div style={{ backgroundImage: 'url("https://i.ibb.co/MNvv1Yj/image.png")' }} className="flex flex-col gap-10 my-10 overflow-hidden  bg-fixed">
+            <div className='bg-black bg-opacity-30 pt-20'>
+            <div className="border-b-4 w-fit text-white lg:px-10 text-xl lg:text-3xl font-bold border-[#ffffff] text-center mx-auto" title='' >Why Choose Us</div>
         <div   className='lg:m-20 m-10 '>
 
         <div className='bg-cover max-w-7xl mx-auto gap-10  p-2 ' >
 
             
             <div className='  p-0 text-white '>
-                {/* <div className='  text-center text-black  rounded-lg'> */}
-                {/* <h1 className='text-xl lg:text-3xl font-bold'>Legacy of Superior Resident Services</h1>
-                <h1 className='text-sm lg:text-xl font-medium'>With an illustrious history of unparalleled service, we take pride in consistently exceeding expectations. Our commitment to resident satisfaction is evident in every aspect, creating a legacy of excellence in apartment living.</h1> */}
-
-                {/* </div> */}
                 <div className={`grid ${window.innerWidth <= 1024 ? 'grid-cols-2' : 'grid-cols-3'}  lg:gap-5 gap-16  items-center    `}>
                 {aboutData.map((about, index)=>
                 <motion.div whileInView={flipCard} animate={controls} transition={{duration:1}} ref={ref}  key={index} className=" hero hover:cursor-pointer flex   justify-center mx-auto ">

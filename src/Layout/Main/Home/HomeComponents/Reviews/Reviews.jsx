@@ -1,99 +1,63 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../../../Provider/AuthProvider";
-import SubTitle from "../../../../../Hooks/SubTitle";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 import StarRatings from "react-star-ratings";
+import SubTitle from "../../../../../Hooks/SubTitle";
+import Marquee from 'react-fast-marquee';
+import { motion } from 'framer-motion';
+
+
 
 const Reviews = () => {
 
-    const [sliderRef] = useKeenSlider(
-        {
-          loop: true,
-        },
-        [
-          (slider) => {
-            let timeout
-            let mouseOver = false
-            function clearNextTimeout() {
-              clearTimeout(timeout)
-            }
-            function nextTimeout() {
-              clearTimeout(timeout)
-              if (mouseOver) return
-              timeout = setTimeout(() => {
-                slider.next()
-              }, 2000)
-            }
-            slider.on("created", () => {
-              slider.container.addEventListener("mouseover", () => {
-                mouseOver = true
-                clearNextTimeout()
-              })
-              slider.container.addEventListener("mouseout", () => {
-                mouseOver = false
-                nextTimeout()
-              })
-              nextTimeout()
-            })
-            slider.on("dragStarted", clearNextTimeout)
-            slider.on("animationEnded", nextTimeout)
-            slider.on("updated", nextTimeout)
-          },
-        ]
-      )
 
-
-    const {user} = useContext(AuthContext)
+  const testimonialsData = [
+    {
+      review: "Excellent service and amenities. I had a wonderful experience during my stay at this place. The staff was friendly, the facilities were top-notch, and the overall service exceeded my expectations. I highly recommend this place to anyone looking for a comfortable and enjoyable accommodation!",
+      rating: 5,
+      imgUrl: "https://i.ibb.co/1mYrm2R/wepik-export-20231007082209-QOD8.png",
+      name: "John Smith",
+    },
+    {
+      review: "Fantastic location and spacious apartments. I spent an amazing time in these apartments. The location is superb, close to all the attractions, and the apartments themselves are spacious and well-maintained. I'm very satisfied with my stay and would definitely choose this place again for future visits.",
+      rating: 4.5,
+      imgUrl: "https://i.ibb.co/nnpmQqQ/wepik-export-20231007082343bbh-O.png",
+      name: "Json Burelo",
+    },
+    {
+      review: "Top-notch security and friendly staff. Living in this place has been a fantastic experience. The security measures are impressive, and the staff is always ready to assist with a smile. It truly feels like a great place to live, and I highly recommend it to anyone looking for a secure and welcoming environment.",
+      rating: 5,
+      imgUrl: "https://i.ibb.co/GFxVjDJ/wepik-export-20231007082450-QXcf.png",
+      name: "Ron Weasly",
+    },
+    {
+      review: "Modern amenities and convenient location. My stay in these apartments was comfortable and enjoyable. The modern amenities provided made my daily life hassle-free, and the convenient location made it easy for me to access everything I needed. I give it a solid 4 and would definitely consider staying here again.",
+      rating: 4,
+      imgUrl: "https://i.ibb.co/nn3vVhX/wepik-export-20231007081709-REix.png",
+      name: "Aron Smith",
+    },
+  ];
+  
+  
     return (
-        <div className="py-5 max-w-7xl mx-auto border-2 my-10">
+        <div   className="  lg:my-10">
 
-            <SubTitle title="Our Residents Reviews"></SubTitle>
+            <SubTitle title="Testimonials"></SubTitle>
+            <div style={{ backgroundImage: 'url("https://i.ibb.co/hf4FWfX/image.png")' }} className="h-[400px] flex items-center my-10 overflow-hidden lg:px-20">
+              <div className="text-white space-y-5">
+                <h1 className="text-3xl font-medium">Reviews from Happy Residents</h1>
+                <p className="w-1/2">In our Testimonials Section, discover the authentic experiences of our delighted residents. Uncover why they love calling our apartments home – firsthand accounts of comfort, convenience, and community.</p>
+              </div>
 
-            <div ref={sliderRef} className=" py-5 text-center mx-auto keen-slider max-w-5xl col-span-3">
-            <div className=" keen-slider__slide number-slide1 flex flex-col gap-5 p-2">
-                <h1 className="text-xl lg:text-xl font-semibold">Excellent service and amenities. I highly recommend this place!</h1>
-                <StarRatings rating={5} starRatedColor='#e94f37' starDimension="20px" starSpacing="15px"/>
-                <img className="w-[100px] rounded-full mx-auto pt-10" src="https://i.ibb.co/1mYrm2R/wepik-export-20231007082209-QOD8.png" alt="" />
-                <h1 className="text-xl font-bold lg:text-xl">Jhon Smith</h1>
-            </div>
-            <div className=" keen-slider__slide number-slide1 flex flex-col gap-5 p-2">
-                <h1 className="text-xl lg:text-xl font-semibold">Fantastic location and spacious apartments. Very satisfied with my stay.</h1>
-                <StarRatings rating={4.5} starRatedColor='#e94f37' starDimension="20px" starSpacing="15px"/>
-                <img className="w-[100px] rounded-full mx-auto pt-10" src="https://i.ibb.co/nnpmQqQ/wepik-export-20231007082343bbh-O.png" alt="" />
-                <h1 className="text-xl font-bold lg:text-xl">Json Burelo</h1>
-            </div>
-            <div className=" keen-slider__slide number-slide1 flex flex-col gap-5 p-2">
-                <h1 className="text-xl lg:text-xl font-semibold">Top-notch security and friendly staff. A great place to live!</h1>
-                <StarRatings rating={5} starRatedColor='#e94f37' starDimension="20px" starSpacing="15px"/>
-                <img className="w-[100px] rounded-full mx-auto pt-10" src="https://i.ibb.co/GFxVjDJ/wepik-export-20231007082450-QXcf.png" alt="" />
-                <h1 className="text-xl font-bold lg:text-xl">Ron Weasly</h1>
-            </div>
-            <div className=" keen-slider__slide number-slide1 flex flex-col gap-5 p-2">
-                <h1 className="text-xl lg:text-xl font-semibold">Modern amenities and convenient location. I give it a solid 4!</h1>
-                <StarRatings rating={4} starRatedColor='#e94f37' starDimension="20px" starSpacing="15px"/>
-                <img className="w-[100px] rounded-full mx-auto pt-10" src="https://i.ibb.co/nn3vVhX/wepik-export-20231007081709-REix.png" alt="" />
-                <h1 className="text-xl font-bold lg:text-xl">Aron Smith</h1>
+            <Marquee  speed={100} pauseOnHover={true} className="max-w-4xl lg:flex  mx-auto p-10 my-2 ">
+              {testimonialsData.map((testimonial, index) => (
+                <motion.div initial={{scale:1}} whileHover={{scale:1.1}} transition={{duration:.2}} key={index}  className="shadow-lg max-w-md bg-white text-black p-2 mx-5 h-[300px] flex flex-col rounded-xl justify-center text-center"> 
+                  <img className="w-[100px] rounded-lg mx-auto" src={testimonial.imgUrl} alt="" />
+                  <h1 className="text-xl font-bold lg:text-xl">{testimonial.name}</h1>
+                  <StarRatings rating={testimonial.rating} starRatedColor='#e94f37' starDimension="15px" starSpacing="5px" />
+                  <h1 className="text-sm lg:text-sm font-semibold">{testimonial.review}</h1>
+                </motion.div>
+              ))}
+            </Marquee>
             </div>
             
-          </div>
-
-            {/* <div className="flex justify-center">
-            {user && 
-                <div>
-                    <button className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>Write a review</button>
-                        <dialog id="my_modal_3" className="modal">
-                        <div className="modal-box">
-                            <form method="dialog">
-                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                            </form>
-                            <h3 className="font-bold text-lg">Hello!</h3>
-                            <p className="py-4">Press ESC key or click on ✕ button to close</p>
-                        </div>
-                        </dialog> 
-                </div>
-        }
-            </div> */}
         </div>
     );
 };
