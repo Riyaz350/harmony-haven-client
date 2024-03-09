@@ -1,6 +1,6 @@
 # About Harmony Havens
 
-Live Link: https://6568263afe8d95692e5ee16a--cute-vacherin-eb6d20.netlify.app
+Live Link: https://landlord-b89d4.web.app/
 
 Admin credentials
 - Admin mail: phero@gmail.com
