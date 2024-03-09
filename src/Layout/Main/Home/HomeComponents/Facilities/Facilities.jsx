@@ -87,7 +87,7 @@ const Facilities = () => {
       ];
 
     return (
-        <div className="max-w-7xl mx-auto my-10 flex flex-col gap-10 bottom-2 border-black">
+        <div className="max-w-7xl mx-auto my-10 flex flex-col gap-10 bottom-2 border-black overflow-hidden">
             <SubTitle title="Facilities"></SubTitle>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:space-y-0 justify-around  lg:gap-10">
                 {itemsArray.map((item,index) =>

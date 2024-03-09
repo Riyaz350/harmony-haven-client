@@ -8,7 +8,7 @@ import Facilities from "./HomeComponents/Facilities/Facilities";
 import Reviews from "./HomeComponents/Reviews/Reviews";
 import AboutUs from "./HomeComponents/AboutUs/AboutUs";
 import OurTeam from "./HomeComponents/OurTeam/OurTeam";
-
+import Choose from "./HomeComponents/Choose/Choose";
 
 const Home = () => {
     const {user} =useContext(AuthContext)
@@ -17,6 +17,7 @@ const Home = () => {
             
                <div> <Slider></Slider></div>
             {user && <Coupon></Coupon>}
+            <Choose></Choose>
             <Facilities></Facilities>
             <About></About>
             <OurTeam></OurTeam>

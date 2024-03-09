@@ -64,41 +64,6 @@ const About = () => {
         },
     ]
 
-    const [sliderRef] = useKeenSlider(
-        {
-          loop: true,
-          duration:2000
-        },
-        [
-          (slider) => {
-            let timeout
-            function clearNextTimeout() {
-              clearTimeout(timeout)
-            }
-            function nextTimeout() {
-              clearTimeout(timeout)
-              timeout = setTimeout(() => {
-                slider.next()
-              }, 3000)
-            }
-            slider.on("created", () => {
-              slider.container.addEventListener("mouseover", () => {
-                mouseOver = true
-                clearNextTimeout()
-              })
-              slider.container.addEventListener("mouseout", () => {
-                mouseOver = false
-                nextTimeout()
-              })
-              nextTimeout()
-            })
-            slider.on("dragStarted", clearNextTimeout)
-            slider.on("animationEnded", nextTimeout)
-            slider.on("updated", nextTimeout)
-          },
-        ]
-      )
-
 
 
     return (

@@ -40,10 +40,10 @@ const Reviews = () => {
         <div   className="  lg:my-10">
 
             <SubTitle title="Testimonials"></SubTitle>
-            <div style={{ backgroundImage: 'url("https://i.ibb.co/hf4FWfX/image.png")' }} className="h-[400px] flex items-center my-10 overflow-hidden lg:px-20">
-              <div className="text-white space-y-5">
+            <div style={{ backgroundImage: 'url("https://i.ibb.co/hf4FWfX/image.png")' }} className="lg:h-[400px] flex lg:flex-row flex-col items-center my-10 overflow-hidden lg:px-20">
+              <div className="text-white lg:text-start text-center space-y-5">
                 <h1 className="text-3xl font-medium">Reviews from Happy Residents</h1>
-                <p className="w-1/2">In our Testimonials Section, discover the authentic experiences of our delighted residents. Uncover why they love calling our apartments home – firsthand accounts of comfort, convenience, and community.</p>
+                <p className=" md:w-1/2 p-5 mx-auto lg:mx-0 ">In our Testimonials Section, discover the authentic experiences of our delighted residents. Uncover why they love calling our apartments home – firsthand accounts of comfort, convenience, and community.</p>
               </div>
 
             <Marquee  speed={100} pauseOnHover={true} className="max-w-4xl lg:flex  mx-auto p-10 my-2 ">

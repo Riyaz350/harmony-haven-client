@@ -1,0 +1,9 @@
+@keyframes marquee {
+    from {
+      background-position: 0;
+    }
+    to {
+      background-position: 200%; /* Adjust as needed */
+    }
+  }
+  

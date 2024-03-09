@@ -44,11 +44,9 @@ const Slider = () => {
             }
             slider.on("created", () => {
               slider.container.addEventListener("mouseover", () => {
-                mouseOver = true
                 clearNextTimeout()
               })
               slider.container.addEventListener("mouseout", () => {
-                mouseOver = false
                 nextTimeout()
               })
               nextTimeout()

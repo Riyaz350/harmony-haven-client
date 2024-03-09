@@ -16,7 +16,7 @@ const Location = () => {
 
     const markers = [
       {
-        geocode:[23.6148078, 90.502026],
+        geocode:[23.8055346798615, 90.42102566006591],
         popUp: "We are here"
       }
     ]
@@ -35,14 +35,14 @@ const Location = () => {
             <div className="flex py-10 text-2xl ml-10">
               <h1>Harmony Haven</h1>
             </div>
-            <div className="bg-gray-300 text-lg w-full font-medium py-5 text-start flex justify-between px-20">
+            <div className="bg-gray-200 text-lg w-full font-medium py-5 text-start flex justify-between px-20">
               <div>
                 <h1>House No:</h1>
-                <h1 className="font-bold">38/100</h1>
+                <h1 className="font-bold">38</h1>
               </div>
               <div>
                 <h1>Area</h1>
-                <h1 className="font-bold">Gulshan Avenew</h1>
+                <h1 className="font-bold">Baridhara</h1>
               </div>
               <div>
                 <h1>City</h1>
@@ -101,7 +101,7 @@ const Location = () => {
           </nav>
           <main >
 
-            <MapContainer center={[23.6148078, 90.502026]} zoom={13}>
+            <MapContainer center={[23.8055346798615, 90.42102566006591]} zoom={13}>
                   <TileLayer attribution= '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"/>
           {
             markers.map((marker,  index) =>(
