@@ -33,7 +33,7 @@ const AboutUs = () => {
                 <div className="flex flex-col items-center lg:items-start text-white space-y-5">
                     <h1 className="text-xl lg:text-3xl">Living Spaces at a Glance</h1>
                     <h1 className="text-sm text-center lg:text-start lg:text-base w-4/5">Explore our diverse range of living spaces—thoughtfully designed rooms for every lifestyle, fostering a vibrant community with various members.</h1>
-                    <NavLink className='mt-2 w-fit lg:mt-5 block p-1 lg:p-5 lg:text-xl text-xs border-2  border-white bg-white hover:text-[#e94f37] lg:w-fit  text-black ' to='/apartments'>Take A Peak</NavLink>                </div>
+                    <NavLink className='mt-2 w-fit lg:mt-5 block p-1 lg:p-5 lg:text-xl text-xs border-2  border-white bg-white hover:text-[#CD8C66] lg:w-fit  text-black ' to='/apartments'>Take A Peak</NavLink>                </div>
 
                 <div className="flex my-5 justify-center text-white md:gap-10 gap-5  w-3/4 lg:w-full lg:my-10 mx-auto  font-bold  ">
                     <div className=" m-0 text-center">

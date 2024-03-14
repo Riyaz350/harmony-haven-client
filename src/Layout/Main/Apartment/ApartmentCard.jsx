@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion';
+import { FaRegThumbsUp } from "react-icons/fa";
+import { FaRegThumbsDown } from "react-icons/fa";
 import { IoWaterOutline } from "react-icons/io5";
 import { FaFireBurner } from "react-icons/fa6";
 import { TiLightbulb } from "react-icons/ti";
 import { GiComputerFan } from "react-icons/gi";
 import { MdBalcony, MdFireplace } from "react-icons/md";
+import { motion } from 'framer-motion';
+
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
@@ -14,7 +17,7 @@ import useUserRole from '../../../Hooks/useUserRole'
 
 
 
-const ApartmentCard = ({apartment}) => {
+const ApartmentCard = ({apartment, index}) => {
     const toDate = new Date()
     const {user} = useContext(AuthContext)
     const{_id, apartmentImage,status, floorNo, room, blockName, apartmentNo, rent, balcony, water, gas, electricity, security, airCondition, heater, waterHeater} = apartment
@@ -70,68 +73,90 @@ const ApartmentCard = ({apartment}) => {
     const handleAdminError = () =>{
         Swal.fire({position: "top-end", icon: "error", title: "Only a user can sign an agreement", text:'Sign in as user to book an apartment', showConfirmButton: false, timer: 1500});
     }
+
+    const images = [
+        'https://i.ibb.co/Vw1n3nf/image.png',
+        'https://i.ibb.co/Q9yB63j/image.png',
+        'https://i.ibb.co/6rfvbCp/image.png',
+        'https://i.ibb.co/YcDmLPr/image.png',
+        'https://i.ibb.co/ZBTmQJs/image.png',
+        'https://i.ibb.co/6rfvbCp/image.png',
+        'https://i.ibb.co/YcDmLPr/image.png',
+        'https://i.ibb.co/ZBTmQJs/image.png',
+        'https://i.ibb.co/ZBTmQJs/image.png',
+        'https://i.ibb.co/9wYqrMb/image.png'
+
+    ]
+    const iconClass = 'flex items-center gap-2 border-2 border-black border-opacity-30 p-1 rounded-lg'
+
     return (
-        <div>
-            <div>
-            <div className="   bg-black rounded-xl text-white">
-            <div className="hero-content lg:flex flex-col items-start lg:items-center lg:justify-between  lg:flex-row-reverse ">
-               <div> 
-                <motion.img variants={fadeFromLeft} initial='initial' whileInView='animate' transition={{ duration: 1 }} viewport={{once:true}} src="https://i.ibb.co/RTjR6yM/modern-residential-building.jpg" className="lg:max-w-sm rounded-lg shadow-2xl" />
+        <motion.div initial={{scale:1}} whileHover={{scale:1.04}} className="cursor-pointer">
+            <div className="card w-fit mx-auto   shadow-xl">
+            <figure><img className="h-[120px]  lg:h-[250px]  lg:w-[350px] " src={images[index]} alt="Album"/></figure>
+            <div className="card-body">
+                <h2 className="card-title text-sm md:text-base lg:text-xl ">Block Name: {apartment?.blockName}</h2>
+                <p>Apartment No: {apartment?.apartmentNo}</p>
+
+                <div className="flex gap-10">
+                    <h1><span className="font-medium ">Rent:  </span>{apartment.rent}</h1>
+                    <h1><span className="font-medium">Rooms: </span>{apartment.room}</h1>
                 </div>
-               <div className=''>
-                <div>
-                <h1 className="text-xl lg:text-3xl font-bold ">Apartment NO: {apartmentNo}</h1>
-                <p className="py-6 text-lg lg:text-xl">Floor: <span className={specClass}>{floorNo}</span></p>
-                <p className="py-6 text-lg lg:text-xl">Block: <span className={specClass}>{blockName}</span></p>
-                <p className="py-6 text-lg lg:text-xl">Rent: <span className={specClass}>{rent}</span></p>
-                </div>
-                <div className='space-y-2 mb-5'>
-                    <h1 className='text-2xl'>Other Facilities</h1>
-                    <div className='flex gap-5'>
+
+                <div className='flex flex-wrap md:hidden '>
                     {balcony? <motion.div title='Balcony'  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}}    className={faciClass} ><MdBalcony /></motion.div>: <></>}
                     {water? <motion.div title='Water'  variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><IoWaterOutline /></motion.div>: <></>}
                     {gas? <motion.div title='Gas' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} > <FaFireBurner /> </motion.div>: <></>}
                     {electricity? <motion.div title='Electricity' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><TiLightbulb /></motion.div>: <></>}
                     {airCondition? <motion.div title='Cooler' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><GiComputerFan /></motion.div>: <></>}
                     {heater? <motion.div title='Heater' variants={fadeInAnimate} initial='initial' whileInView='animate'  transition={{duration: 0.3, ease: [0, 0.71, 0.2, 1.01], scale: {type: "spring", damping: 5, stiffness: 100, restDelta: 0.001}}} className={faciClass} ><MdFireplace /></motion.div>: <></>}
-                    </div>
                 </div>
 
-                {userRole =='admin'? 
-                <div>
-                    {status == 'booked'?
-                
-                        <button onClick={handleAdminError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
-                      
-                        <button onClick={handleAdminError}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Available</p> </button>
-                    }
-                    </div>:
-             <></>}
-                {userRole =='user'? 
-                <div>
-                    {status == 'booked'?
-                
-                <button onClick={handleUnavailable}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
-              
-                <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button>
-            }
-
-                 {/* <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button> */}
-             </div>:
-             <></>}
-                {userRole =='member'? 
-                <div>
-                    <button onClick={handleError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             </div>:
-             <></>}
-
-
+                <div className='hidden md:grid grid-cols-3  gap-3 text-xs'>
+                    <p className={iconClass}>Balcony:{balcony?  <><FaRegThumbsUp className="text-green-500" /></>: <><FaRegThumbsDown className="text-red-500" /></>}</p>
+                    <p className={iconClass}>Water: {water?  <><FaRegThumbsUp className="text-green-500" /></>: <><FaRegThumbsDown className="text-red-500" /></>}</p>
+                    <p className={iconClass}>Gas: {gas?  <><FaRegThumbsUp className="text-green-500" /></>: <><FaRegThumbsDown className="text-red-500" /></>}</p>
+                    <p className={iconClass}>Electricity: {electricity?  <><FaRegThumbsUp className="text-green-500" /></>: <><FaRegThumbsDown className="text-red-500" /></>}</p>
+                    <p className={iconClass}>AC: {airCondition?  <><FaRegThumbsUp className="text-green-500" /></>: <><FaRegThumbsDown className="text-red-500" /></>}</p>
+                    <p className={iconClass}>Heater: {heater?  <><FaRegThumbsUp className="text-green-500" /></>: <><FaRegThumbsDown className="text-red-500" /></>}</p>
                 </div>
+
                 
+                
+                <div>
+                    {userRole =='admin'? 
+                    <div>
+                        {status == 'booked'?
+                    
+                            <button onClick={handleAdminError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
+                        
+                            <button onClick={handleAdminError}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Available</p> </button>
+                        }
+                        </div>:
+                <></>}
+                    {userRole =='user'? 
+                    <div>
+                        {status == 'booked'?
+                    
+                    <button onClick={handleUnavailable}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             :
+                
+                    <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button>
+                }
+
+                    {/* <button onClick={handleAgreement}  className= 'btn bg-[#000000] hover:bg-white hover:text-[#000000] text-white font-bold'> <p>Book Now</p> </button> */}
+                </div>:
+                <></>}
+                    {userRole =='member'? 
+                    <div>
+                        <button onClick={handleError}   className= 'btn bg-gray-400 hover:bg-gray-400  text-black font-bold'>Unavailable</button>             </div>:
+                <></>}
+                </div>
             </div>
             </div>
-            </div>
-        </div>
+        </motion.div>
     );
 };
 
 export default ApartmentCard;
+
+
+            

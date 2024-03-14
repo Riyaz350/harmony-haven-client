@@ -12,7 +12,7 @@ const Apartment = () => {
 
     const{loading} =useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
-    const apartmentsPerPage = 6
+    const apartmentsPerPage = 9
     const [length, setLength] = useState(0)
     const [current, setCurrent] =useState(0)
     const [apartments] = useApartmentInfo(current, apartmentsPerPage)
@@ -49,16 +49,9 @@ const handleNext = () =>{
             <SubTitle title='Choose Your Apartment' ></SubTitle>
 
             { loading && <span className="loading w-1/6 mx-auto py-80 text-center block loading-spinner text-[#000000]"></span>}
-            <div  style={{
-        display: 'grid',
-        gridTemplateColumns: isWideScreen ? 'repeat(2, 1fr)' : '1fr',
-        gap: '1rem',
-        padding: '1rem',
-        boxSizing: 'border-box',
-        width: '100%', // Optional: Set the width to 100% for full-width container
-      }} className="lg:grid  lg:grid-cols-2 p-5  gap-10 py-14">
+            <div  style={{display: 'grid', gridTemplateColumns: isWideScreen ? 'repeat(3, 1fr)' : 'repeat(2, 1fr)',}} className="lg:grid p-5 gap-5 md:gap-20 py-14 max-w-7xl mx-auto">
                 {
-                    apartments.map(apartment => <ApartmentCard key={apartment.id} apartment={apartment} refetch></ApartmentCard> )
+                    apartments.map((apartment, index) => <ApartmentCard key={apartment.id} index={index} apartment={apartment} refetch></ApartmentCard> )
                 }
             </div>
 

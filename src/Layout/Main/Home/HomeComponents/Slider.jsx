@@ -73,7 +73,7 @@ const Slider = () => {
                     </motion.h1>
                 </div>
                 <motion.div variants={pop} initial={{y:50}} whileInView={{y:0}} transition={{  duration: 1 }} className="lg:pl-10">
-                <NavLink className='mt-2 w-fit lg:mt-5 block p-1 lg:p-5 lg:text-xl text-xs border-2 hover:border-black border-black hover:text-[#e94f37] lg:w-fit btnLandLord text-white ' to='/apartments'>Find Your Apartment</NavLink>
+                <NavLink className='mt-2 w-fit lg:mt-5 block p-1 lg:p-5 lg:text-xl text-xs border-2 hover:border-black border-black hover:text-[#CD8C66] lg:w-fit btnLandLord text-white ' to='/apartments'>Find Your Apartment</NavLink>
                 </motion.div>
           </div>
           </div>

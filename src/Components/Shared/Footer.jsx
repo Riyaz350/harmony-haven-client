@@ -22,7 +22,7 @@ const Footer = () => {
                     ))}
                 </ReactFastMarquee>
 
-                <div className="absolute mb-10 top-10 z-10 h-full w-full   p-10    justify-between items-center flex lg:flex-row lg:items-start flex-row  overflow-scroll lg:overflow-hidden gap-10  text-white lg:text-xl ">
+                <div className="absolute mb-10 top-10 z-10 h-full w-full   p-10    justify-between items-center flex flex-col  md:flex-row lg:items-start overflow-scroll lg:overflow-hidden gap-10  text-white lg:text-xl ">
 
 
                 <div className="space-y-4 md:w-[300px] bg-white lg:bg-black  bg-opacity-30 p-5 rounded-lg col-span-1">

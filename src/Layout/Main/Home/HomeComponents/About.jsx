@@ -69,7 +69,7 @@ const About = () => {
     return (
 
         <div style={{ backgroundImage: 'url("https://i.ibb.co/MNvv1Yj/image.png")' }} className="flex flex-col gap-10 my-10 overflow-hidden  bg-fixed">
-            <div className='bg-black bg-opacity-30 pt-20'>
+            <div className='  pt-20'>
             <div className="border-b-4 w-fit text-white lg:px-10 text-xl lg:text-3xl font-bold border-[#ffffff] text-center mx-auto" title='' >Why Choose Us</div>
         <div   className='lg:m-20 m-10 '>
 

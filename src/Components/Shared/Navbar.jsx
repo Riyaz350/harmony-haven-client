@@ -11,8 +11,8 @@ const Navbar = () => {
 
     const {user, logOut} =useContext(AuthContext)
     const [userRole] =useUserRole()
-        const active = 'btn shadow-none font-bold bg-transparent rounded-none  border-0 lg:w-auto w-full border-[#ffffff] text-[#e94f37]  hover:bg-transparent  border-b-[#e94f37] hover:border-b-[#e94f37] hover:border-b-2 border-b-2 border-transparent'
-        const inActive = 'btn shadow-none font-bold bg-transparent rounded-none  border-0 lg:w-auto w-full border-[#ffffff] text-[#ffffff]  hover:bg-transparent  hover:border-b-[#e94f37] hover:border-b-2 border-b-2 border-transparent'
+        const active = 'btn shadow-none font-bold bg-transparent rounded-none  border-0 lg:w-auto w-full border-[#ffffff] text-[#CD8C66]  hover:bg-transparent  border-b-[#CD8C66] hover:border-b-[#CD8C66] hover:border-b-2 border-b-2 border-transparent'
+        const inActive = 'btn shadow-none font-bold bg-transparent rounded-none  border-0 lg:w-auto w-full border-[#ffffff] text-[#ffffff]  hover:bg-transparent  hover:border-b-[#CD8C66] hover:border-b-2 border-b-2 border-transparent'
 
 
     const navLinks = < div className=" lg:flex items-center gap-6 space-y-1">

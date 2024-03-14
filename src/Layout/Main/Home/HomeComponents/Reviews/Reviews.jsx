@@ -51,7 +51,7 @@ const Reviews = () => {
                 <motion.div initial={{scale:1}} whileHover={{scale:1.1}} transition={{duration:.2}} key={index}  className="shadow-lg max-w-md bg-white text-black p-2 mx-5 h-[300px] flex flex-col rounded-xl justify-center text-center"> 
                   <img className="w-[100px] rounded-lg mx-auto" src={testimonial.imgUrl} alt="" />
                   <h1 className="text-xl font-bold lg:text-xl">{testimonial.name}</h1>
-                  <StarRatings rating={testimonial.rating} starRatedColor='#e94f37' starDimension="15px" starSpacing="5px" />
+                  <StarRatings rating={testimonial.rating} starRatedColor='#CD8C66' starDimension="15px" starSpacing="5px" />
                   <h1 className="text-sm lg:text-sm font-semibold">{testimonial.review}</h1>
                 </motion.div>
               ))}
